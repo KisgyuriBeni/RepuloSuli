@@ -1,4 +1,6 @@
 .card{
-    max-width: fit-content;
-    background-color: rgb(199, 224, 245);
+  background-color: rgba(255,255,255,0.5); 
+}
+.container{
+  min-height: 70vh;
 }
