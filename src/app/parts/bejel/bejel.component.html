@@ -1,6 +1,6 @@
 <div class="container mt-t pt-5">
     <div class="col-12 col-sm-8 col-mb-6 m-auto">
-      <div class="card mt-5 p-3 border-0 shadow">
+      <div class="card mt-5 p-3 border-0 shadow col-12 col-sm8">
         <div class="icon mb-3">
           <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" 
           class="bi bi-airplane-engines" viewBox="0 0 16 16">
@@ -10,19 +10,21 @@
         <h2 class="text-center mb-3 p-3">
           Jelentkezzen be
         </h2>
-        <div class=" text-center mb-3">
+        
+        <div class="text-center mb-3">
           <input type="email" placeholder="Email" class="inp form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
         </div>
-        <div class="mb-3">
+        <div class="text-center mb-3">
           <input type="password" placeholder="Jelszó" class="inp form-control" id="exampleInputPassword1">
         </div>
+
 
         <div class="text-center mb-2">
           <button type="button" class="btn btn-dark">Bejelentkezés</button>
         </div>
-          <a class="text-center mb-2 nav-link" href="#">Elfelejtette jelszavát?</a>
-          <a routerLink="/regist" class="text-center nav-link">Nincs fiókja?</a>
-      </div>
+          <a class="text-center mb-2 nav-link" routerLink="/elfjel">Elfelejtette jelszavát?</a>
+          <a class="text-center nav-link" routerLink="/regist">Nincs fiókja?</a>
+        </div>
           
     </div>
     <div class="footer text-center p-3">

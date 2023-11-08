@@ -11,6 +11,7 @@ import { RegistComponent } from './parts/regist/regist.component';
 import { NavComponent } from './parts/nav/nav.component';
 import { FooldalComponent } from './parts/fooldal/fooldal.component';
 import { ProfilComponent } from './parts/profil/profil.component';
+import { ElfjelComponent } from './parts/elfjel/elfjel.component';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { ProfilComponent } from './parts/profil/profil.component';
     RegistComponent,
     NavComponent,
     FooldalComponent,
-    ProfilComponent
+    ProfilComponent,
+    ElfjelComponent
   ],
   imports: [
     BrowserModule,
