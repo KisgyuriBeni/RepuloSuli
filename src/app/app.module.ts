@@ -10,6 +10,7 @@ import { BejelComponent } from './parts/bejel/bejel.component';
 import { RegistComponent } from './parts/regist/regist.component';
 import { NavComponent } from './parts/nav/nav.component';
 import { FooldalComponent } from './parts/fooldal/fooldal.component';
+import { ProfilComponent } from './parts/profil/profil.component';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { FooldalComponent } from './parts/fooldal/fooldal.component';
     BejelComponent,
     RegistComponent,
     NavComponent,
-    FooldalComponent
+    FooldalComponent,
+    ProfilComponent
   ],
   imports: [
     BrowserModule,
