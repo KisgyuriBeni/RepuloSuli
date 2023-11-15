@@ -4,3 +4,10 @@
 .nav-item:active{
     background-color: rgb(220, 220, 220);
 }
+.nav-button:hover{
+    text-decoration: underline;
+}
+.nav-button:active{
+    background-color: rgb(220, 220, 220);
+    color:black;
+}
