@@ -9,12 +9,9 @@
 .container{
   margin-top: 20px;
   min-height: 80vh;
-  border-radius: 5px;
-  background-color: rgba(169, 169, 169, 0.3);
 }
 .inp{
   border-radius: 20px;
 }
-.btn{
-  border-radius: 20px;
-}
+
+

@@ -9,29 +9,26 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div [ngbCollapse]="becsukva" class="collapse navbar-collapse" id="navbarSupportedContent">
+
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
         <li class="nav-item">
-            <a class="nav-link" routerLink="">Galéria</a>
+            <a class="nav-link" routerLink="/galeria">Galéria</a>
         </li>
         <li class="nav-item">
             <a class="nav-link" routerLink="/bejel">Belépés</a>
         </li>
-      <!--<li ngbDropdown class="nav-item" role="presentation">
-            <button type="button" class="nav-link" ngbDropdownToggle>Belépés</button>
-            <div ngbDropdownMenu>
-                <button ngbDropdownItem routerLink="/bejel">Bejelentkezés</button>
-                 <button ngbDropdownItem routerLink="/regist">Regisztráció</button> 
-            </div>
-        </li> -->
         <li ngbDropdown class="nav-item" role="presentation">
             <button type="button" class="nav-link" ngbDropdownToggle>Kurzusok</button>
             <div ngbDropdownMenu>
-                <button ngbDropdownItem class="nav-button">Jelentkezések</button>
+                <button ngbDropdownItem class="nav-button">Kezdés</button>
+                <button ngbDropdownItem class="nav-button">Jelentkezés</button>
                 <button ngbDropdownItem class="nav-button">Űrlap</button>
             </div>
         </li>
+
         </ul>  
+
         <form class="d-flex" role="search">
           <input class="form-control me-2" type="search">
         <button class="btn btn-outline-dark me-2" type="submit">
