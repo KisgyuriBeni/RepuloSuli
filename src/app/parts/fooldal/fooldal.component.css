@@ -1,0 +1,22 @@
+
+.carousel-item{
+    background-color: rgb(150,150,150);
+    height: fit-content;
+}
+.carousel-header{
+    background-color: rgb(170, 170, 170,0.3);
+    padding: 30px;
+
+}
+.text-content-header{
+    background-color:rgb(170, 170, 170,0.3);
+    padding: 30px;
+    
+}
+.text-content{
+    background-color: rgba(111,199,234, 0.3); 
+    padding:20px; 
+}
+
+
+
