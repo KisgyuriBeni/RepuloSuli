@@ -7,6 +7,7 @@ import { ElfjelComponent } from './parts/elfjel/elfjel.component';
 import { ProfilComponent } from './parts/profil/profil.component';
 import { VerifyComponent } from './parts/verify/verify.component';
 import { GaleriaComponent } from './parts/galeria/galeria.component';
+import { AdatlapComponent } from './parts/adatlap/adatlap.component';
 
 const routes: Routes = [
   {path: 'bejel', component:BejelComponent},
@@ -16,7 +17,7 @@ const routes: Routes = [
   {path: 'regist', component:RegistComponent},
   {path: 'profil', component:ProfilComponent},
   {path: 'fooldal', component:FooldalComponent},
-  {path: '', component:FooldalComponent},
+  {path: 'adatlap', component:AdatlapComponent},
   {path: ' ', component:FooldalComponent},
   {path: '**', component:FooldalComponent},
 ];

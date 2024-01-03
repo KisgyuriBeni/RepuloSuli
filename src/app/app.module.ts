@@ -14,6 +14,7 @@ import { ProfilComponent } from './parts/profil/profil.component';
 import { ElfjelComponent } from './parts/elfjel/elfjel.component';
 import { VerifyComponent } from './parts/verify/verify.component';
 import { GaleriaComponent } from './parts/galeria/galeria.component';
+import { AdatlapComponent } from './parts/adatlap/adatlap.component';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { GaleriaComponent } from './parts/galeria/galeria.component';
     ProfilComponent,
     ElfjelComponent,
     VerifyComponent,
-    GaleriaComponent
+    GaleriaComponent,
+    AdatlapComponent
   ],
   imports: [
     BrowserModule,
