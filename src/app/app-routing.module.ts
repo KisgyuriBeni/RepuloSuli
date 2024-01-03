@@ -16,6 +16,7 @@ const routes: Routes = [
   {path: 'regist', component:RegistComponent},
   {path: 'profil', component:ProfilComponent},
   {path: 'fooldal', component:FooldalComponent},
+  {path: '', component:FooldalComponent},
   {path: ' ', component:FooldalComponent},
   {path: '**', component:FooldalComponent},
 ];
