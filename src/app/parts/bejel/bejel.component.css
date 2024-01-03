@@ -13,6 +13,27 @@
 .inp{
   border-radius: 20px;
 }
+#propeller{
+  height: 100px;
+  width: 100px;
+}
+#propeller:hover{
+  animation: spin 3s infinite linear;
+}
+@keyframes spin{
+  from{
+    transform: rotate(0deg);
+  }
+  to{
+    transform: rotate(360deg);
+  }
+}
+@media only screen and (max-widht:600px){
+  .container{
+    border:none;
+  }
+}
+
 
 
 
