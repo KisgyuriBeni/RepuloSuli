@@ -16,7 +16,6 @@ import { VerifyComponent } from './parts/verify/verify.component';
 import { GaleriaComponent } from './parts/galeria/galeria.component';
 import { AdatlapComponent } from './parts/adatlap/adatlap.component';
 import { JelentkComponent } from './parts/jelentk/jelentk.component';
-import { KezdesComponent } from './parts/kezdes/kezdes.component';
 import { TajekoztatoComponent } from './parts/tajekoztato/tajekoztato.component';
 
 
@@ -33,7 +32,6 @@ import { TajekoztatoComponent } from './parts/tajekoztato/tajekoztato.component'
     GaleriaComponent,
     AdatlapComponent,
     JelentkComponent,
-    KezdesComponent,
     TajekoztatoComponent
   ],
   imports: [
