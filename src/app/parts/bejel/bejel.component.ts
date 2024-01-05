@@ -7,6 +7,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./bejel.component.css'],
 })
 export class BejelComponent {
+  
+  signIn(){
+    window.location.reload()
+  }
 }
 
 	

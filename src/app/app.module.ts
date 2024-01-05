@@ -15,6 +15,9 @@ import { ElfjelComponent } from './parts/elfjel/elfjel.component';
 import { VerifyComponent } from './parts/verify/verify.component';
 import { GaleriaComponent } from './parts/galeria/galeria.component';
 import { AdatlapComponent } from './parts/adatlap/adatlap.component';
+import { JelentkComponent } from './parts/jelentk/jelentk.component';
+import { KezdesComponent } from './parts/kezdes/kezdes.component';
+import { TajekoztatoComponent } from './parts/tajekoztato/tajekoztato.component';
 
 
 @NgModule({
@@ -28,7 +31,10 @@ import { AdatlapComponent } from './parts/adatlap/adatlap.component';
     ElfjelComponent,
     VerifyComponent,
     GaleriaComponent,
-    AdatlapComponent
+    AdatlapComponent,
+    JelentkComponent,
+    KezdesComponent,
+    TajekoztatoComponent
   ],
   imports: [
     BrowserModule,

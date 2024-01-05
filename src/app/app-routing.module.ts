@@ -8,6 +8,8 @@ import { ProfilComponent } from './parts/profil/profil.component';
 import { VerifyComponent } from './parts/verify/verify.component';
 import { GaleriaComponent } from './parts/galeria/galeria.component';
 import { AdatlapComponent } from './parts/adatlap/adatlap.component';
+import { JelentkComponent } from './parts/jelentk/jelentk.component';
+import { TajekoztatoComponent } from './parts/tajekoztato/tajekoztato.component';
 
 const routes: Routes = [
   {path: 'bejel', component:BejelComponent},
@@ -18,6 +20,8 @@ const routes: Routes = [
   {path: 'profil', component:ProfilComponent},
   {path: 'fooldal', component:FooldalComponent},
   {path: 'adatlap', component:AdatlapComponent},
+  {path: 'jelentkezes', component:JelentkComponent},
+  {path: 'tajekoztato', component:TajekoztatoComponent},
   {path: ' ', component:FooldalComponent},
   {path: '**', component:FooldalComponent},
 ];
