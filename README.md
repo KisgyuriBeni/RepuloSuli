@@ -6,7 +6,7 @@ Először a XAMPP-ot kell indítani, `airplane.sql`-t impoortálni és adatokat 
 `npm start`
 ## Navigálás
 localhost:5000-en jelennek meg az adatok <br>
-a táblák pedik külön külön <br>
+a táblák pedik külön-külön <br>
 - `localhost:5000/users`
 - `localhost:5000/airplanes`
 - `localhost:5000/courses`
