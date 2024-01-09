@@ -2,10 +2,10 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Gép: 127.0.0.1
--- Létrehozás ideje: 2023. Nov 22. 10:54
--- Kiszolgáló verziója: 10.4.28-MariaDB
--- PHP verzió: 8.2.4
+-- Host: 127.0.0.1
+-- Generation Time: Jan 09, 2024 at 09:12 AM
+-- Server version: 10.4.32-MariaDB
+-- PHP Version: 8.0.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Adatbázis: `airplane`
+-- Database: `airplane`
 --
 CREATE DATABASE IF NOT EXISTS `airplane` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
 USE `airplane`;
@@ -26,7 +26,7 @@ USE `airplane`;
 -- --------------------------------------------------------
 
 --
--- Tábla szerkezet ehhez a táblához `airplanes`
+-- Table structure for table `airplanes`
 --
 
 CREATE TABLE `airplanes` (
@@ -38,7 +38,7 @@ CREATE TABLE `airplanes` (
 -- --------------------------------------------------------
 
 --
--- Tábla szerkezet ehhez a táblához `courses`
+-- Table structure for table `courses`
 --
 
 CREATE TABLE `courses` (
@@ -55,7 +55,7 @@ CREATE TABLE `courses` (
 -- --------------------------------------------------------
 
 --
--- Tábla szerkezet ehhez a táblához `users`
+-- Table structure for table `users`
 --
 
 CREATE TABLE `users` (
@@ -74,7 +74,7 @@ CREATE TABLE `users` (
 -- --------------------------------------------------------
 
 --
--- Tábla szerkezet ehhez a táblához `users_courses`
+-- Table structure for table `users_courses`
 --
 
 CREATE TABLE `users_courses` (
@@ -83,17 +83,17 @@ CREATE TABLE `users_courses` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Indexek a kiírt táblákhoz
+-- Indexes for dumped tables
 --
 
 --
--- A tábla indexei `airplanes`
+-- Indexes for table `airplanes`
 --
 ALTER TABLE `airplanes`
   ADD PRIMARY KEY (`airplane_id`);
 
 --
--- A tábla indexei `courses`
+-- Indexes for table `courses`
 --
 ALTER TABLE `courses`
   ADD PRIMARY KEY (`course_id`),
@@ -101,35 +101,18 @@ ALTER TABLE `courses`
   ADD KEY `airplane_id` (`airplane_id`);
 
 --
--- A tábla indexei `users`
+-- Indexes for table `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`user_id`),
   ADD KEY `course_id` (`course_id`);
 
 --
--- A tábla indexei `users_courses`
+-- Indexes for table `users_courses`
 --
 ALTER TABLE `users_courses`
   ADD KEY `fk_courseid` (`course_id`),
   ADD KEY `fk_userid` (`user_id`);
-
---
--- Megkötések a kiírt táblákhoz
---
-
---
--- Megkötések a táblához `courses`
---
-ALTER TABLE `courses`
-  ADD CONSTRAINT `fk_airplaneid` FOREIGN KEY (`airplane_id`) REFERENCES `airplanes` (`airplane_id`);
-
---
--- Megkötések a táblához `users_courses`
---
-ALTER TABLE `users_courses`
-  ADD CONSTRAINT `fk_courseid` FOREIGN KEY (`course_id`) REFERENCES `users` (`course_id`),
-  ADD CONSTRAINT `fk_userid` FOREIGN KEY (`user_id`) REFERENCES `courses` (`user_id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
