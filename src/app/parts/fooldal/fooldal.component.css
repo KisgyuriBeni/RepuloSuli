@@ -33,9 +33,12 @@ html{
     border-radius:5px;
 }
 
-.faststart-content{
+.fastcard-content{
     border-radius: 10px;
     padding: 20px;
+}
+#fastcard{
+    border: none;
 }
 
 

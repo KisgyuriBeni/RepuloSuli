@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { BaseService } from 'src/app/services/base.service';
 
 @Component({
   selector: 'app-profil',
@@ -6,5 +7,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./profil.component.css']
 })
 export class ProfilComponent {
+ 
 
+  
 }

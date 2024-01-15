@@ -35,34 +35,105 @@
     </div>
     <div class="welcome-text text-center">
       <p>
-          Az élet túl rövid, hogy mindig a földön két lábbal élj. Mit szólnál, ha szárnyakat kapnál?                          
+          Az élet túl rövid, hogy mindig a földön két lábbal élj. Mit szólnál szárnyakhoz?                          
       </p>
     </div> 
-    <div class="button p-3">
-      <button type="button" class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#exampleModal" >
-      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16">
-        <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
-      </svg>
-      </button>
-    </div>
     
 
   </div>
-<!-- modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+
+<!-- modals -->
+    <div class="modal fade modal-lg" id="kepzesekmodal" data-bs-backdrop="static" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
           <div class="modal-content p-2">
             <button type="button" class="btn-close p-2" data-bs-dismiss="modal" aria-label="Close"></button>
             <div class="modal-body">
+              <h5 class="text-center p-2">
+                A FunFly számodra 3 teljesen körű kézpést elvégzését teszi lehetővé.
+              </h5>
+              <table class="table table-borderless">
+                <thead>
+                  <tr>
+                    <th scope="col"></th>
+                    <th scope="col">PPL</th>
+                    <th scope="col">IFR</th>
+                    <th scope="col">NVFR</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row"></th>
+                    <td>Alapkézpés</td>
+                    <td>Műszeres repülés</td>
+                    <td>Éjszakai repülés</td>
+                  </tr>
+                  <tr>
+                    <th scope="row"></th>
+                    <td>Megelőző kézpés nélkül kezdhető</td>
+                    <td>Elvárás: PPL szakszolgálati engedély</td>
+                    <td>Elvárás: PPL szakszolgálati engedély</td> 
+                  </tr>
+                </tbody>
+              </table>
+              <div class="p-2 mb-2">
+                <h5>Nézd meg a képzéseinket</h5>
+                <button type="button" class="btn btn-light shadow" routerLink="/jelentkezes" >Tovább</button>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>  
+
+    <div class="modal fade modal-lg" id="tipusmodal" data-bs-backdrop="static" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content p-2">
+            <button type="button" class="btn-close p-2" data-bs-dismiss="modal" aria-label="Close"></button>
+            <div class="modal-body">
+              <h5 class="text-center p-2">
+                Három különböző Cessna típusra szerezhetsz típusvizsgát!
+              </h5>
+              <table class="table table-borderless text-center">
+                <thead>
+                  <tr>
+                    <th scope="col"></th>
+                    <th scope="col">Cessna 172 Skyhawk</th>
+                    <th scope="col">Cessna 152</th>
+                    <th scope="col">Cessna 162 Skycatcher</th>
+                  </tr>
+                </thead>
+              </table>
+              <div class="p-2 mb-2">
+                <h5>A gépek műszaki tulajdonságait tekintsd meg a galériánkban.</h5>
+                <button type="button" class="btn btn-light shadow" routerLink="/galeria" >Tovább</button>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>   
+
+     
+
+    <div class="modal fade modal-lg" id="mentormodal" data-bs-backdrop="static" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content p-2">
+            <button type="button" class="btn-close p-2" data-bs-dismiss="modal" aria-label="Close"></button>
+            <div class="modal-body">
+              <h5 class="text-center p-2">
+                Minden tanuló kap egy mentort miután leadta jelentkezését.
+              </h5>
               <p>
-                  Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vel obcaecati aperiam voluptas cumque deserunt impedit qui, quas 
-                  ratione minus atque voluptatum in laudantium voluptatibus dolorum, itaque dolores optio provident ipsam!
+                A mentorod email-ben vagy telefonon fog téged keresni, majd minden esetben online fogja tartani a konzultációkat.
+                Az oktatás teljese menete alatt tájékoztat és segíti a tanulmányaidat menedzselni.
               </p>
+              <h5>
+                Az előzetes tájékoztatót itt tudod megtekinteni.
+              </h5>
+              <button type="button" class="btn btn-light shadow" routerLink="/tajekoztato">Tovább</button>
             </div>
           </div>
         </div>
     </div>            
-<!-- modal -->
+<!-- modals -->
 
   <div class="aboutus-content mb-3 shadow">
     <div class="aboutus-header mb-2 p-2">
@@ -79,7 +150,7 @@
               <img src="../assets/images/team2.jpg" alt="plane3">    
             </div>
             <p>
-              Egy csapat fiatal szakember, akik szeretnék felruházni a repülés csoládatos mesterségével mások tudástárát is.
+              Egy csapat fiatal szakember, akik szeretnék felruházni a repülés csoládatos mesterségével másokat is.
               Csapatunk fő tevékenysége a segítség és kapcsolattartás. 
               A repülni vágyó személyek támogatása, a pilóta képzés ideje alatt saját partnerekkel.
             </p> 
@@ -93,7 +164,7 @@
               <img src="../assets/images/plane5copy.jpg" alt="plane3">    
             </div>
           <p>
-            Létre jöttünk célzata, a hobbi pilótatanoncok segítése a tanulmányaik alatt. 
+            Létre jöttünk célzata, a tanulók segítése a tanulmányaik alatt. 
             Például ismertetjük velük a kézpést meglőző főbb feladatokat. 
             Kapcsolatban maradunk velük és ellenőrizzük az oktatás menetét.
             A partner oktatóinkkal karöltve szervezzük a oktatásokat és vizsgákat.
@@ -107,7 +178,7 @@
               <img src="../assets/images/doktor.jpg" alt="plane3">    
             </div>
           <p>
-            Ezt a fajta orvosi vizsgálatot, repülőorvos partnereink végzik el, kizárólagosan a tanoncok számára. 
+            Ezt a fajta orvosi vizsgálatot, repülőorvos partnereink végzik el, kizárólagosan a tanulóink számára. 
           </p>
         </div> 
         <div class="text-card card mb-3">
@@ -118,9 +189,9 @@
               <img src="../assets/images/mentor.jpg" alt="plane3">    
             </div>
           <p>
-            Gyakorlatilag a tanoncok az első oktatásban töltött percétől kezdve kapnak egy mentor.
-            Ennek a személynek a feladata, a tanoncot informálni, segíteni, összekötni az oktatókkal. 
-            Ez konzultációkon történik.
+            Gyakorlatilag a tanulók, az első oktatásban töltött percétől kezdve kapnak egy mentor.
+            Ennek a személynek a feladata, a tanulókat informálni, segíteni, összekötni az oktatókkal. 
+            Ez konzultációkon történik, teljesen online.
           </p>
         </div>  
         <div class="text-card card mb-3">
@@ -131,27 +202,26 @@
               <img src="../assets/images/plane9.jpg" alt="plane3">    
             </div>
           <p>
-            Nagy meglepetésünkre a Cessna elfogadta az felajánlott együttműködést. 
-            Ez által tudjuk biztosítani a legjobb gépeket, a legjobb gyártótól.
+            Együtt működésünk alapján tudjuk biztosítani a legjobb gépeket, a legjobb gyártótól.
           </p>
         </div>         
       </div>   
   </div>
-  <div class="faststart-content mb-3 shadow">
+  <div class="fastcard-content mb-3 shadow">
       <div class="faststart-content-header">
-        <h2>
+        <h2 class="text-center p-2 mb-3">
           Gyorskezdés
         </h2>
       </div> 
       <div class="row ">
         <div class="col">
-          <div class="card">
+          <div class="card shadow" id="fastcard">
             <img src="../assets/images/pilot1.jpg" class="card-img-top" alt="pilot1">
             <div class="p-3 text-center">
-              <p>
-                Partnereink
-              </p>
-              <button type="button" class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#exampleModal" >
+             <h5 class="p-1">
+              Képzéseink
+             </h5>
+              <button type="button" class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#kepzesekmodal" >
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16">
                 <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
               </svg>
@@ -160,13 +230,13 @@
           </div>
         </div>
         <div class="col">
-          <div class="card">
+          <div class="card shadow"  id="fastcard">
             <img src="../assets/images/testwriting.jpg" class="card-img-top" alt="pilot1">            
             <div class="p-3 text-center">
-              <p>
-                Mentor Program
-              </p>
-              <button type="button" class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#exampleModal" >
+              <h5 class="p-1">
+                Mentorprogram
+              </h5>
+              <button type="button" class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#mentormodal" >
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16">
                 <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
               </svg>
@@ -175,17 +245,17 @@
           </div>
         </div>
         <div class="col">
-          <div class="card">
-            <img src="../assets/images/pilot2.jpg" class="card-img-top" alt="pilot1">
+          <div class="card shadow "  id="fastcard">
+            <img src="../assets/images/pilot2.jpg" class="card-img-top" alt="pilot1">            
             <div class="p-3 text-center">
-              <p>
-                Tipus Vizsgák
-              </p>
-              <button type="button" class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#exampleModal" >
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16">
-                  <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
-                </svg>
-                </button>
+              <h5 class="p-1">
+                Típusvizsgák
+              </h5>
+              <button type="button" class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#tipusmodal" >
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
+              </svg>
+              </button>
             </div>
           </div>
         </div>
