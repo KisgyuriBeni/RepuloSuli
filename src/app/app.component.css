@@ -1,0 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+html{
+    font-family: "Roboto", sans-serif;
+    font-weight: 400, 700;
+    font-style: normal;
+    background-image: linear-gradient(to bottom right,#d67fc6, #b683c8, #967fc5, #5d82c6, #5d82c6, #5e86c4, #8692ce, #bbaed9  );
+}
+
+  
