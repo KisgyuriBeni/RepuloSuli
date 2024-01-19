@@ -1,14 +1,26 @@
 <div class="container">
-    
+      <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+        Button with data-bs-target
+      </button>
+      
+      <!-- profilon belüli nav -->      
+      <div class="offcanvas offcanvas-start justify-content-center" id="offcanvasExample">
+        <div class="offcanvas-header">
+          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <button type="button" class="btn btn-dark">Adatlap szerkesztés</button>
+        </div>
+      </div>
+<!-- kkkkk -->
     <div class="row mt-5">
         <div class="col-6">
             <div class="card shadow">
                 <h2 class="p-3">Adatlap</h2>
                 <div class="card-body">
                     <div>
-                        
+                        <!-- adatbetöltés helye        -->
                     </div>                         
-                    <button type="button" class="btn btn-dark" routerLink="/adatlap">Szerkesztés</button>
                 </div>
               </div>
         </div>
@@ -17,9 +29,8 @@
                 <h2 class="p-3">Jelentkezések és típusvizsgák</h2>
                 <div class="card-body">
                     <div>
-                        <!-- adatok kilistazasa -->
+                        <!-- adatbetöltés helye  -->
                     </div>
-                    <button type="button" class="btn btn-dark">Áttekintés</button>
                 </div>
               </div>
         </div>

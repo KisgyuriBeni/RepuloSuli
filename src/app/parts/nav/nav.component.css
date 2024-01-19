@@ -1,4 +1,4 @@
-.nav-item:hover{
+/* .nav-item:hover{
     text-decoration: underline;
 }
 .nav-item:active{
@@ -10,4 +10,26 @@
 .nav-button:active{
     background-color: rgb(220, 220, 220);
     color:black;
+} */
+.nav{
+    background-color: rgb(255,255,255,0.5);
+    border: none;
+}
+.nav .nav-link{
+    color: black;
+}
+
+.nav-item.dropdown:hover .dropdown-menu {
+    display: block;
+}
+.dropdown-menu{
+    background-color:rgb(255,255,255,0.5);
+    border: none;
+    padding: 20px;
+    border-radius: 10px;
+}
+.dropdown-menu .dropdown-item{
+    border-radius: 15px;
+    color: black;
+    
 }
