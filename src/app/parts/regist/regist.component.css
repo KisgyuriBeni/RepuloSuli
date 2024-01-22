@@ -4,9 +4,35 @@
     margin: 0 auto;
   }
 .container{
-    margin-top: 20px;
-    min-height: 80vh;
+    padding: 20px;
 }
 .inp{
     border-radius: 20px;
+}
+#propeller {
+    height: 100px;
+    width: 100px;
+    transition: transform 3s linear;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+#propeller.spinning {
+    animation: spin 3s infinite linear;
+}
+
+@media only screen and (max-width: 600px) {
+    .container {
+        border: none;
+    }
+}
+.footer{
+    background-color: rgba(255, 255, 255, 0.5);
 }

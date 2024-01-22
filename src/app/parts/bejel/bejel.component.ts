@@ -8,8 +8,10 @@ import { Component } from '@angular/core';
 })
 export class BejelComponent {
   
-  signIn(){
-    window.location.reload()
+  isSpinning: boolean = false;
+
+  startSpin() {
+    this.isSpinning = !this.isSpinning;
   }
 }
 

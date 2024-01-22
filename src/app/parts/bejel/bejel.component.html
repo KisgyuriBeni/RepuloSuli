@@ -1,40 +1,42 @@
-<div class="container mt-t">
-    <div class="col-12 col-sm-8 col-mb-6 m-auto">
-      <div class="card mt-5 p-3 border-0 shadow col-12 col-sm8">
-        <h2 class="text-center mb-3 p-3">
-          Jelentkezzen be
-        </h2>       
-        <div class=" mb-3">
-          <input type="email" placeholder="Email" 
-          class="inp form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+<div class="container mt-4">
+  <div class="col-12 col-sm-8 col-md-6 mx-auto" style="max-width: 30rem;">
+    <div class="card border-0 shadow p-5 mb-4">
+      <h2 class="text-center mb-3 p-3">
+        Üdvözöljük! <br>
+        Lépjen be
+      </h2>       
+      <div class="mb-3">
+        <input type="email" placeholder="Emailcím" 
+        class="inp form-control" id="email" aria-describedby="emailHelp">
+      </div>
+      <div class="mb-3">
+        <input type="password" placeholder="Jelszó" 
+        class="inp form-control" id="password">
+      </div>
+      <div class="row justify-content-center">
+        <div class=" col-6 col-sm-4 mb-2 text-center mx-auto" (click)="startSpin()">
+          <img *ngIf="isSpinning" src="../../../assets/images/jetengine.png" id="propeller" class="spinning">
+          <img *ngIf="!isSpinning" src="../../../assets/images/jetengine.png" id="propeller">
         </div>
-        <div class="mb-3">
-          <input type="password" placeholder="Jelszó" 
-          class="inp form-control" id="exampleInputPassword1">
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-12 col-sm-8 col-md-6 mb-2 text-center mx-auto">
+          <a class="nav-link" routerLink="/elfelejtett">Elfelejtett jelszó</a>
         </div>
-        <div class="text-center mb-2">
-        <img src="../../../assets/images/jetengine.png" id="propeller">
-        <!-- (click)="" BEJEL BUTTON SCRIPT-->
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-12 col-sm-8 col-md-6 mb-2 text-center mx-auto">
+          <a class="nav-link" routerLink="/regist">Nincs fiókja?</a>
         </div>
-        <div>
-          <div class="row justify-content-center">
-            <div class="col-4">
-              <a class="text-center mb-2 nav-link" routerLink="/elfelejtett">Elfelejtett jelszó</a>
-            </div>
-          </div>
-          <div class="row justify-content-center">
-            <div class="col-4">
-              <a class="text-center nav-link" routerLink="/regist">Nincs fiókja?</a>
-            </div>
-          </div>         
-        </div>
-      </div>       
-    </div>
-    <div class="footer p-5 text-center">
-      <p class="p-3">
-        Copyright | 2023 | Beki's | school project
-      </p>
-    </div>  
+      </div>     
+    </div>       
+  </div>
 </div>
+<div class="footer p-5 text-center">
+  <p class="mt-2">
+    Copyright | 2023 | Beki's | school project
+  </p>
+</div> 
+ 
 
 
