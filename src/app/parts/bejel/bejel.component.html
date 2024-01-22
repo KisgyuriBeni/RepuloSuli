@@ -7,14 +7,16 @@
       </h2>       
       <div class="mb-3">
         <input type="email" placeholder="Emailcím" 
-        class="inp form-control" id="email" aria-describedby="emailHelp">
+        class="inp form-control" id="email" aria-describedby="emailHelp"
+        [(ngModel)]="email">
       </div>
       <div class="mb-3">
         <input type="password" placeholder="Jelszó" 
-        class="inp form-control" id="password">
+        class="inp form-control" id="password"
+        [(ngModel)]="password">
       </div>
       <div class="row justify-content-center">
-        <div class=" col-6 col-sm-4 mb-2 text-center mx-auto" (click)="startSpin()">
+        <div class=" col-12 col-sm-8 col-md-6 mb-2 text-center mx-auto" (click)="login()">
           <img *ngIf="isSpinning" src="../../../assets/images/jetengine.png" id="propeller" class="spinning">
           <img *ngIf="!isSpinning" src="../../../assets/images/jetengine.png" id="propeller">
         </div>
