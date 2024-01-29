@@ -63,6 +63,7 @@ CREATE TABLE `users` (
   `course_id` int(5) DEFAULT NULL,
   `user_name` varchar(20) DEFAULT NULL,
   `email` varchar(255) DEFAULT NULL,
+  `phone` varchar(50) DEFAULT NULL,
   `password` varchar(64) DEFAULT NULL,
   `first_name` varchar(50) DEFAULT NULL,
   `last_name` varchar(50) DEFAULT NULL,

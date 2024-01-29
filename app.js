@@ -127,10 +127,10 @@ app.put('/users', (req, res) => {
         if(err) throw err
         console.log(`connected as id ${connection.threadId}`)
 
-        const  {user_id, course_id, user_name, email, password, first_name, last_name, mothers_name, address, birth_day} =req.body
+        const  {user_id, course_id, user_name, email, phone, password, first_name, last_name, mothers_name, address, birth_day} =req.body
 
-        connection.query('UPDATE users SET course_id = ?, user_name = ?, email = ?, password = ?, first_name = ?, last_name = ?, mothers_name = ?, address = ?, birth_day = ? WHERE user_id = ?',
-                        [course_id, user_name, email, password, first_name, last_name, mothers_name, address, birth_day, user_id],
+        connection.query('UPDATE users SET course_id = ?, user_name = ?, email = ?, phone = ?, password = ?, first_name = ?, last_name = ?, mothers_name = ?, address = ?, birth_day = ? WHERE user_id = ?',
+                        [course_id, user_name, email, phone, password, first_name, last_name, mothers_name, address, birth_day, user_id],
                         (err, rows) => {
             connection.release()
 
