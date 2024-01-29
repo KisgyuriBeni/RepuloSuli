@@ -17,6 +17,7 @@ import { GaleriaComponent } from './parts/galeria/galeria.component';
 import { AdatlapComponent } from './parts/adatlap/adatlap.component';
 import { JelentkComponent } from './parts/jelentk/jelentk.component';
 import { TajekoztatoComponent } from './parts/tajekoztato/tajekoztato.component';
+import { FooterComponent } from './parts/footer/footer.component';
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import { TajekoztatoComponent } from './parts/tajekoztato/tajekoztato.component'
     GaleriaComponent,
     AdatlapComponent,
     JelentkComponent,
-    TajekoztatoComponent
+    TajekoztatoComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

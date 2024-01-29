@@ -19,14 +19,8 @@ export class RegistComponent {
     this.isSpinning = true;
 
     // Felhasználó hozzáadása
-    this.authService.addUser({ email: this.email, password: this.password, username:this.username });
-    
-    // Csak az input mezőket ürítjük ki
-    this.email = ''
-    this.password = ''
-    this.username = ''
-
-    console.log('Regisztráció sikeres:', this.username);
+    this.authService.addUser({ email: this.email, password: this.password, username:this.username })
+    console.log('Regisztráció sikeres', this.username);
 
     // Az isSpinning leállítása példa céljából 3 másodperc után
     setTimeout(() => {

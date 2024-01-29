@@ -5,6 +5,7 @@
   }
 .container{
     padding: 20px;
+    min-height: 100vh;
 }
 .inp{
     border-radius: 20px;
@@ -32,7 +33,4 @@
     .container {
         border: none;
     }
-}
-.footer{
-    background-color: rgba(255, 255, 255, 0.5);
 }
