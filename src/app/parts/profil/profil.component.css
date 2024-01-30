@@ -2,3 +2,6 @@
     border-radius: 10px ;
     border:none;
 }
+.container{
+    min-height: 100vh;
+}

@@ -1,0 +1,6 @@
+.container{
+    min-height: 100vh;
+}
+.header{
+    background-color: rgb(255,255,255,0.5);
+}
