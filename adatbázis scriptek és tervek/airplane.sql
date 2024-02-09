@@ -2,10 +2,10 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Jan 09, 2024 at 09:12 AM
--- Server version: 10.4.32-MariaDB
--- PHP Version: 8.0.30
+-- Gép: 127.0.0.1
+-- Létrehozás ideje: 2024. Feb 06. 08:25
+-- Kiszolgáló verziója: 10.4.28-MariaDB
+-- PHP verzió: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `airplane`
+-- Adatbázis: `airplane`
 --
 CREATE DATABASE IF NOT EXISTS `airplane` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
 USE `airplane`;
@@ -26,7 +26,7 @@ USE `airplane`;
 -- --------------------------------------------------------
 
 --
--- Table structure for table `airplanes`
+-- Tábla szerkezet ehhez a táblához `airplanes`
 --
 
 CREATE TABLE `airplanes` (
@@ -38,7 +38,7 @@ CREATE TABLE `airplanes` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `courses`
+-- Tábla szerkezet ehhez a táblához `courses`
 --
 
 CREATE TABLE `courses` (
@@ -55,7 +55,7 @@ CREATE TABLE `courses` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users`
+-- Tábla szerkezet ehhez a táblához `users`
 --
 
 CREATE TABLE `users` (
@@ -69,13 +69,14 @@ CREATE TABLE `users` (
   `last_name` varchar(50) DEFAULT NULL,
   `mothers_name` varchar(100) DEFAULT NULL,
   `address` varchar(150) DEFAULT NULL,
-  `birth_day` date DEFAULT NULL
+  `birth_day` date DEFAULT NULL,
+  `phone_number` varchar(15) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users_courses`
+-- Tábla szerkezet ehhez a táblához `users_courses`
 --
 
 CREATE TABLE `users_courses` (
@@ -84,17 +85,17 @@ CREATE TABLE `users_courses` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Indexes for dumped tables
+-- Indexek a kiírt táblákhoz
 --
 
 --
--- Indexes for table `airplanes`
+-- A tábla indexei `airplanes`
 --
 ALTER TABLE `airplanes`
   ADD PRIMARY KEY (`airplane_id`);
 
 --
--- Indexes for table `courses`
+-- A tábla indexei `courses`
 --
 ALTER TABLE `courses`
   ADD PRIMARY KEY (`course_id`),
@@ -102,14 +103,14 @@ ALTER TABLE `courses`
   ADD KEY `airplane_id` (`airplane_id`);
 
 --
--- Indexes for table `users`
+-- A tábla indexei `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`user_id`),
   ADD KEY `course_id` (`course_id`);
 
 --
--- Indexes for table `users_courses`
+-- A tábla indexei `users_courses`
 --
 ALTER TABLE `users_courses`
   ADD KEY `fk_courseid` (`course_id`),
