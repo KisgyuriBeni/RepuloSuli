@@ -45,5 +45,26 @@ class UserController extends Controller
         $user -> save();
         return $user;
     }
+
+    public function createUser(Request $request) {
+
+        $user = new User;
+        $user -> id = $request["id"];
+        $user -> course_id = $request["course_id"];
+        $user -> user_name = $request["user_name"];
+        $user -> email = $request["email"];
+        $user -> phone_number = $request["phone_number"];
+        $user -> password = $request["password"];
+        $user -> first_name = $request["first_name"];
+        $user -> last_name = $request["last_name"];
+        $user -> mothers_name = $request["mothers_name"];
+        $user -> address = $request["address"];
+        $user -> birth_day = $request["birth_day"];
+        
+
+        $user -> save();
+        return $user;
+    }
 }
+
 

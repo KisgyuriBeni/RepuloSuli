@@ -27,15 +27,21 @@ Route::get("/users", [UserController::class, "getUsers"]);
 Route::get("/users/{userid}",[UserController::class,"getUserById"]);
 Route::delete("/users/delete", [UserController::class, "deleteUser"]);
 Route::post("/users/update", [UserController::class, "updateUser"]);
+Route::post("/users/create", [UserController::class, "createUser"]);
 
 
 Route::get("courses", [CourseController::class, "getCourses"]);
+Route::get("/courses/{courseid}",[CourseController::class,"getCourseById"]);
+Route::delete("/courses/delete", [CourseController::class, "deleteCourse"]);
+Route::post("/courses/update", [CourseController::class, "updateCourse"]);
+Route::post("/courses/create", [CourseController::class, "createCourse"]);
 
 
 Route::get("/airplanes", [AirplaneController::class, "getAirplanes"]);
 Route::get("/airplanes/{airplaneid}",[AirplaneController::class,"getAirplaneById"]);
 Route::delete("/airplanes/delete", [AirplaneController::class, "deleteAirplane"]);
 Route::post("/airplanes/update", [AirplaneController::class, "updateAirplane"]);
+Route::post("/airplanes/create", [AirplaneController::class, "createAirplane"]);
 
 
 Route::get("/users_courses", [UserCourseController::class, "getUsersCourses"]);

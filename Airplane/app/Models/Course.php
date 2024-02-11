@@ -15,7 +15,6 @@ class Course extends Model
         "instructor",
         "start_date",
         "end_date",
-        "start_day",
         "course_fee"
     ];
     public $timestamps = false;

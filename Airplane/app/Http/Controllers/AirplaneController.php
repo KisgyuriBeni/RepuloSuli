@@ -36,4 +36,15 @@ class AirplaneController extends Controller
         $airplane -> save();
         return $airplane;
     }
+
+    public function createAirplane(Request $request) {
+
+        $airplane = new Airplane;
+        $airplane -> id = $request["id"];
+        $airplane -> airplane_name = $request["airplane_name"];
+        $airplane -> propulsion = $request["propulsion"];
+
+        $airplane -> save();
+        return $airplane;
+    }
 }
