@@ -10,7 +10,7 @@ class Airplane extends Model
     use HasFactory;
     protected $fillable = [
         "airplane_name",
-        "propuslion"
+        "propulsion"
     ];
     public $timestamps = false;
 }

@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('airplanes', function (Blueprint $table) {
             $table->id();
             $table->string("airplane_name");
-            $table->string("propuslion");
+            $table->string("propulsion");
            //$table->timestamps();
         });
     }

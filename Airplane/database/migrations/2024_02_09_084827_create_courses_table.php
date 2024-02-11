@@ -19,7 +19,6 @@ return new class extends Migration
             $table->string("instructor");
             $table->date("start_date");
             $table->date("end_date");
-            $table->date("start_day");
             $table->double("course_fee");
             //$table->timestamps();
         });

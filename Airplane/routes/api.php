@@ -5,7 +5,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AirplaneController;
 use App\Http\Controllers\CourseController;
-use App\Http\Controllers\User_CourseController;
+use App\Http\Controllers\UserCourseController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -23,6 +24,21 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::get("/users", [UserController::class, "getUsers"]);
+Route::get("/users/{userid}",[UserController::class,"getUserById"]);
+Route::delete("/users/delete", [UserController::class, "deleteUser"]);
+Route::post("/users/update", [UserController::class, "updateUser"]);
+
+
 Route::get("courses", [CourseController::class, "getCourses"]);
+
+
 Route::get("/airplanes", [AirplaneController::class, "getAirplanes"]);
-Route::get("/users_courses", [User_CourseController::class, "getUsers_Courses"]);
+Route::get("/airplanes/{airplaneid}",[AirplaneController::class,"getAirplaneById"]);
+Route::delete("/airplanes/delete", [AirplaneController::class, "deleteAirplane"]);
+Route::post("/airplanes/update", [AirplaneController::class, "updateAirplane"]);
+
+
+Route::get("/users_courses", [UserCourseController::class, "getUsersCourses"]);
+
+
+
