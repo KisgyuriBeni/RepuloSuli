@@ -44,7 +44,14 @@ Route::post("/airplanes/update", [AirplaneController::class, "updateAirplane"]);
 Route::post("/airplanes/create", [AirplaneController::class, "createAirplane"]);
 
 
-Route::get("/users_courses", [UserCourseController::class, "getUsersCourses"]);
+Route::get("/user_courses", [UserCourseController::class, "getUsersCourses"]);
+Route::get("/user_courses/user/{userid}", [UserCourseController::class,"getByUserId"]);
+Route::get("/user_courses/course/{courseid}", [UserCourseController::class,"getByCourseId"]);
+Route::delete("/user_courses/user/delete", [UserCourseController::class, "deleteByUserId"]);
+Route::delete("/user_courses/course/delete", [UserCourseController::class, "deleteByCourseId"]);
+
+Route::post("/user_courses/create", [UserCourseController::class, "createNewUserCourses"]);
+
 
 
 
