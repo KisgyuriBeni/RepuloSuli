@@ -13,8 +13,8 @@ class UserController extends Controller
         return $users;
     }
 
-    public function getUserById($userId) {
-        $user = User::where("id", $userId) ->first();
+    public function getUserById(Request $request) {
+        $user = User::find($request["id"]);
 
         return $user;
     }

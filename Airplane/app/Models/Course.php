@@ -9,7 +9,6 @@ class Course extends Model
 {
     use HasFactory;
     protected $fillable=[
-        "course_name",
         "user_id",
         "airplane_id",
         "instructor",

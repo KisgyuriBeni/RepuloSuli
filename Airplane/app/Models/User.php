@@ -9,7 +9,6 @@ class User extends Model
 {
     use HasFactory;
     protected $fillable = [
-        "course_id",
         "user_name",
         "email",
         "phone_number",
@@ -21,4 +20,6 @@ class User extends Model
         "birth_day"
     ];
     public $timestamps = false;
+
+    
 }

@@ -13,8 +13,8 @@ class AirplaneController extends Controller
         return $airplanes;
     }
 
-    public function getAirplaneById($airplaneId) {
-        $airplane = Airplane::where("id", $airplaneId) ->first();
+    public function getAirplaneById(Request $request) {
+        $airplane = Airplane::find($request["id"]);
 
         return $airplane;
     }

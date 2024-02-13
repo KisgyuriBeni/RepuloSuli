@@ -43,6 +43,7 @@ class UserCourseController extends Controller
 
     }
 
+
     public function createNewUserCourses(Request $request) {
 
         $usersCourses = new UserCourse;
