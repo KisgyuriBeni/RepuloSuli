@@ -14,7 +14,6 @@ return new class extends Migration
         Schema::create('courses', function (Blueprint $table) {
             $table->id();
             $table->string("course_name");
-            //$table->foreignId("user_id");
             $table->foreignId("airplane_id");
             $table->string("instructor");
             $table->date("start_date");

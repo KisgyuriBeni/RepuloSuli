@@ -12,19 +12,22 @@ class UserController extends Controller
 
 
     public function getUsers() {
-        $users = User::all();
+        $users = User::with("courses")->get();
 
         return $users;
+        
     }
 
     public function getUserById(Request $request) {
         $user = User::find($request["id"]);
 
         return $user;
+        //TODO:hozzátartozó curzus kiírása
     }
 
     public function deleteUser(Request $request) {
         $user = User::find($request["id"]);
+        $user->courses()->detach();
 
         $user->delete();
         return $user;
@@ -34,7 +37,6 @@ class UserController extends Controller
     public function updateUser(Request $request) {
 
         $user = User::find($request["id"]);
-        $user -> course_id = $request["course_id"];
         $user -> user_name = $request["user_name"];
         $user -> email = $request["email"];
         $user -> phone_number = $request["phone_number"];
@@ -54,7 +56,6 @@ class UserController extends Controller
 
         $user = new User;
         $user -> id = $request["id"];
-        $user -> course_id = $request["course_id"];
         $user -> user_name = $request["user_name"];
         $user -> email = $request["email"];
         $user -> phone_number = $request["phone_number"];
@@ -69,6 +70,12 @@ class UserController extends Controller
         $user -> save();
         return $user;
     }
+
+    public function store(Request $request) {
+        $user = User::find($request["user_id"]);
+        $user->courses()->attach($request["course_id"]);
+    }
+    
 }
 
 

@@ -24,33 +24,28 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::get("/users", [UserController::class, "getUsers"]);
-Route::get("/getOneUser",[UserController::class,"getUserById"]);
-Route::delete("/userDelete", [UserController::class, "deleteUser"]);
-Route::post("/userUpdate", [UserController::class, "updateUser"]);
-Route::post("/userCreate", [UserController::class, "createUser"]);
+Route::get("/oneuser",[UserController::class,"getUserById"]);
+Route::post("/usercreate", [UserController::class, "createUser"]);
+Route::post("/userupdate", [UserController::class, "updateUser"]);
+Route::delete("/userdelete", [UserController::class, "deleteUser"]);
+
 
 
 Route::get("courses", [CourseController::class, "getCourses"]);
-Route::get("/getOneCourse",[CourseController::class,"getCourseById"]);
-Route::delete("/courseDelete", [CourseController::class, "deleteCourse"]);
-Route::post("/courseUpdate", [CourseController::class, "updateCourse"]);
-Route::post("/courseCreate", [CourseController::class, "createCourse"]);
+Route::get("/onecourse",[CourseController::class,"getCourseById"]);
+Route::post("/coursecreate", [CourseController::class, "createCourse"]);
+Route::post("/courseupdate", [CourseController::class, "updateCourse"]);
+Route::delete("/coursedelete", [CourseController::class, "deleteCourse"]);
+
 
 
 Route::get("/airplanes", [AirplaneController::class, "getAirplanes"]);
-Route::get("/getOneAirplane",[AirplaneController::class,"getAirplaneById"]);
-Route::delete("/airplaneDelete", [AirplaneController::class, "deleteAirplane"]);
-Route::post("/airplaneUpdate", [AirplaneController::class, "updateAirplane"]);
-Route::post("/airplaneCreate", [AirplaneController::class, "createAirplane"]);
+Route::get("/oneairplane",[AirplaneController::class,"getAirplaneById"]);
+Route::post("/airplanecreate", [AirplaneController::class, "createAirplane"]);
+Route::post("/airplaneupdate", [AirplaneController::class, "updateAirplane"]);
+Route::delete("/airplanedelete", [AirplaneController::class, "deleteAirplane"]);
 
-
-// Route::get("/user_courses", [UserCourseController::class, "getUsersCourses"]);
-// Route::get("/user_courses/user/{userid}", [UserCourseController::class,"getByUserId"]);
-// Route::get("/user_courses/course/{courseid}", [UserCourseController::class,"getByCourseId"]);
-// Route::delete("/user_courses/user/delete", [UserCourseController::class, "deleteByUserId"]);
-// Route::delete("/user_courses/course/delete", [UserCourseController::class, "deleteByCourseId"]);
-
-// Route::post("/user_courses/create", [UserCourseController::class, "createNewUserCourses"]);
+Route::post("/store", [UserController::class, "store"]);
 
 
 

@@ -12,5 +12,11 @@ class Airplane extends Model
         "airplane_name",
         "propulsion"
     ];
+
     public $timestamps = false;
+    
+    public function course() {
+
+        return $this->hasMany(Course::class);
+    }
 }

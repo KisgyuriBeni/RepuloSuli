@@ -10,7 +10,6 @@ class Course extends Model
 {
     use HasFactory;
     protected $fillable=[
-        "user_id",
         "airplane_id",
         "instructor",
         "start_date",
@@ -22,5 +21,10 @@ class Course extends Model
     public function users(): BelongsToMany {
 
         return $this->belongsToMany(User::class, 'user_course', 'course_id', 'user_id');
+    }
+
+    public function airplane(){
+
+        return $this->belongsTo(Airplane::class);
     }
 }

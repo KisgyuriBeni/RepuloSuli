@@ -8,7 +8,7 @@ use App\Models\Course;
 class CourseController extends Controller
 {
     public function getCourses() {
-        $courses = Course::all();
+        $courses = Course::with("airplane")->get();
 
         return $courses;
     }
@@ -17,6 +17,7 @@ class CourseController extends Controller
         $course = Course::find($request["id"]);
 
         return $course;
+        //TODO:hozzátartozó repülőgép kiírása
     }
 
     public function deleteCourse(Request $request) {
@@ -30,8 +31,7 @@ class CourseController extends Controller
     public function updateCourse(Request $request) {
 
         $course = Course::find($request["id"]);
-        $course -> course_name = $request["course_name"];
-        $course -> user_id = $request["user_id"];  
+        $course -> course_name = $request["course_name"]; 
         $course -> airplane_id = $request["airplane_id"];  
         $course -> instructor = $request["instructor"];  
         $course -> start_date = $request["start_date"];  
@@ -49,7 +49,6 @@ class CourseController extends Controller
         $course = new Course;
         $course -> id = $request["id"];
         $course -> course_name = $request["course_name"];
-        $course -> user_id = $request["user_id"];  
         $course -> airplane_id = $request["airplane_id"];  
         $course -> instructor = $request["instructor"];  
         $course -> start_date = $request["start_date"];  
