@@ -75,6 +75,11 @@ class UserController extends Controller
         $user = User::find($request["user_id"]);
         $user->courses()->attach($request["course_id"]);
     }
+
+    public function detach(Request $request) {
+        $user = User::find($request["user_id"]);
+        $user->courses()->detach($request["course_id"]);
+    }
     
 }
 

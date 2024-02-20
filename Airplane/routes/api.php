@@ -46,6 +46,7 @@ Route::post("/airplaneupdate", [AirplaneController::class, "updateAirplane"]);
 Route::delete("/airplanedelete", [AirplaneController::class, "deleteAirplane"]);
 
 Route::post("/store", [UserController::class, "store"]);
+Route::post("/detach", [UserController::class, "detach"]);
 
 
 
