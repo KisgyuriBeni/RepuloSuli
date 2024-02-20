@@ -7,7 +7,6 @@ import { BaseService } from 'src/app/services/base.service';
   styleUrls: ['./profil.component.css']
 })
 export class ProfilComponent {
-felhasznalo:any="Kisgyorgy Bendeguz"
-email:any="kisgyorgybeni@gmail.com"
+
   
 }
