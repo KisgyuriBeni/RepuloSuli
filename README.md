@@ -29,9 +29,9 @@
 **`body`-ban adatok megadása, `id` megadásával lehet a megfelelő rekordot kiválasztani**
   
 #### Rekord törlése
-- `localhost:8000/users/delete`
-- `localhost:8000/airplanes/delete`
-- `localhost:8000/courses/delete` <br>
+- `localhost:8000/userdelete`
+- `localhost:8000/airplanedelete`
+- `localhost:8000/coursedelete` <br>
 **`body`-ban, `id` megadásával lehet a megfelelő rekordot törölni**
 
 #### User, Course kapcsoló tábla
