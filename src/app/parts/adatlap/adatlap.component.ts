@@ -8,10 +8,5 @@ import { NgbCalendar,NgbDateStruct, NgbInputDatepickerConfig } from '@ng-bootstr
 })
 export class AdatlapComponent {
 
-  data:any
-
-  saveData(){
-    window.location.reload()
-  }
 
 }
