@@ -11,7 +11,7 @@ class UserRegisterChecker extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,24 @@ class UserRegisterChecker extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            "name"=>"required|max:20|unique:users",
+            "email"=>"required|email|unique:users",
+            "password"=>"required|min:6",
+            "confirm_password"=>"required|same:password",
+            "phone_number"=>"required|max:15",
+            "first_name"=>"required|max:50",
+            "last_name"=>"required|max:50",
+            "mothers_name"=>"required|max:100",
+            "address"=>"required|max:100",
+            "birth_day"=>"required"
         ];
+    }
+
+    public function failedValidation(Validator $validator){
+        throw new HttpResponseException(response()->json([
+            "success"=>false,
+            "message"=>"Adatbeviteli hiba",
+            "data"=>$validator->errors()
+        ]));
     }
 }
