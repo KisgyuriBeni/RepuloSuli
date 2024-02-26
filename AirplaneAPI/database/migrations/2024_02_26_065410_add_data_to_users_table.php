@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string("address");
             $table->date("birth_day");
             $table->integer("login_attempt")->default(0);
-            $table->timestamp("timeout")->nullable()->default(null);
+            $table->timestamp("banned_time")->nullable()->default(null);
         });
     }
 
