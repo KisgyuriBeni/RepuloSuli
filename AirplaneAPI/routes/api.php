@@ -25,7 +25,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::group(["middleware" => ["auth:sanctum"]], function() {
     Route::post("/logout", [AuthController::class, "logout"]);
-
+    Route::get("/oneuser",[UserController::class,"getUserById"]);
     Route::post("/attach", [UserController::class, "attach"]);
     Route::post("/detach", [UserController::class, "detach"]);
 });
