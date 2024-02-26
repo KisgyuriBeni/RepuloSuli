@@ -17,7 +17,7 @@ class AuthController extends ResponseController {
         $input = $request->all();
         $input["password"] = bcrypt($input["password"]);
         $user = User::create($input);
-        $success ["name"] =$user->name;
+        $success ["user_name"] =$user->user_name;
 
         return $this->sendResponse($success, "Sikeres regisztráció");
     }
@@ -33,8 +33,8 @@ class AuthController extends ResponseController {
             }
             $user = Auth::user();
             (new BanController)->resetBannedData($user->email);
-            $success["token"]=$user->createToken($user->name."token")->plainTextToken;
-            $success["name"] = $user->name;
+            $success["token"]=$user->createToken($user->user_name."token")->plainTextToken;
+            $success["user_name"] = $user->user_name;
             return $this->sendResponse($success, "Sikeres bejelentkezés");
         }else{
             $loginAttempts=(new BanController)->getLoginAttempts($request->email);
