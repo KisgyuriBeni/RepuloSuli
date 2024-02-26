@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Http\Requests\UserRegisterChecker;
+use App\Http\Controllers\Api\ResponseController;
 
 
 
@@ -49,6 +50,18 @@ class UserController extends Controller {
 
         $user -> save();
         return $user;
+    }
+
+    public function attach(Request $request) {
+        $user = User::find($request["user_id"]);
+        $user->courses()->attach($request["course_id"]);
+        return "Sikeres összekapcsolás";
+    }
+
+    public function detach(Request $request) {
+        $user = User::find($request["user_id"]);
+        $user->courses()->detach($request["course_id"]);
+        return "Sikeres leválasztás";
     }
 
 }
