@@ -8,76 +8,47 @@
         <div class="offcanvas-body">
             <div class="offParagraph text-center mb-2">
                 <h5>
-                    Adatlap:
+                    Adatlap
                 </h5>
                 <button type="button" class="btn btn-light" routerLink="/adatlap">Szerkesztés</button>
             </div>
             <div class="offParagraph text-center mb-2">
                 <h5>
-                    Jelentkezések:
+                    Jelentkezések
                 </h5>
                 <button type="button" class="btn btn-light mb-1">Részletek</button>
-                <button type="button" class="btn btn-light">Szerkesztés</button>
-            </div>
-            <div class="offParagraph text-center mb-2">
-                <h5>
-                    Admin felület:
-                </h5>
-                <button type="button" class="btn btn-light mb-1">Felhasználók</button>
-                <button type="button" class="btn btn-light mb-1">Képzések</button>
-                <button type="button" class="btn btn-light">Gép típusok</button>
+                <button type="button" class="btn btn-light">Lemondás</button>
             </div>
             <div class="offParagraph text-center">
+                <button type="button" class="btn btn-light mb-1">Admin felület</button>
                 <button type="button" class="btn btn-light">Kilépés</button>
             </div>
         </div>
       </div>
 <!-- kkkkk -->
 
-<div class="card p-4 mt-3 mb-3">
+<div class="card p-3 shadow mt-5 mb-3">
     <div class="row">
-        <div class="col-6">
-            <h2>
-                Üdvözöljük  !
-            </h2>
-            <p class="mt-4 p-2">
-                Itt tudja megtekinteni az Adatlapján szereplő személyes adatait <br>
-                és a Jelentkezéseinek listáját. <br>
-                Ügyeljen arra, hogy minden adatát adja meg, <br>
-                mielőtt leadja a jelentkezését.
-            </p>
+        <div class="col-auto me-auto" >
+            <h2 *ngFor="let user of users">Üdvözöljük {{user.user_name}}, a profilján!</h2>
         </div>
-        <div class="col-6">
-            <div>
-                <table class="table table-borderless mb-5">
-                    <tbody>
-                        <tr>
-                          <th scope="row">Felhasználónév</th>
-                            
-                        </tr>
-                        <tr>
-                          <th scope="row">Emailcím</th>
-                        </tr>
-                      </tbody>
-                </table>
-            </div>
+        <div class="col-auto">
             <div class="p-2">
                 <button id="slidemenu" class="btn btn-light" type="button" data-bs-toggle="offcanvas" data-bs-target="#profilmenu" aria-controls="offcanvasExample">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-menu-button-wide" viewBox="0 0 16 16">
-                        <path d="M0 1.5A1.5 1.5 0 0 1 1.5 0h13A1.5 1.5 0 0 1 16 1.5v2A1.5 1.5 0 0 1 14.5 5h-13A1.5 1.5 0 0 1 0 3.5zM1.5 1a.5.5 0 0 0-.5.5v2a.5.5 0 0 0 .5.5h13a.5.5 0 0 0 .5-.5v-2a.5.5 0 0 0-.5-.5z"/>
-                        <path d="M2 2.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5m10.823.323-.396-.396A.25.25 0 0 1 12.604 2h.792a.25.25 0 0 1 .177.427l-.396.396a.25.25 0 0 1-.354 0M0 8a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm1 3v2a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2zm14-1V8a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v2zM2 8.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5m0 4a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5"/>
-                    </svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5"/>
+                      </svg>
                 </button>
             </div>
         </div>
-    </div>
+      </div>
 </div>
-    <div class="row" *ngFor="let user of users">
+    <div class="row">
         <div class="col-6">
-            <div class="card shadow">
+            <div class="card p-3 shadow" id="datacard">
                 <h3 class="p-3 text-center">Adatlap</h3>
                 <div class="card-body">
-                    <div>
+                    <div *ngFor="let user of users">
                         <!-- adatbetöltés helye        -->
                         {{users|json}}
                     </div>                         
@@ -85,10 +56,10 @@
               </div>
         </div>
         <div class="col-6">
-            <div class="card shadow">
-                <h3 class="p-3 text-center">Jelentkezések és típusvizsgák</h3>
+            <div class="card p-3 shadow" id="datacard">
+                <h3 class="p-3 text-center">Jelentkezések</h3>
                 <div class="card-body">
-                    <div>
+                    <div *ngFor="let course of courses">
                         <!-- adatbetöltés helye  -->
                     </div>
                 </div>
