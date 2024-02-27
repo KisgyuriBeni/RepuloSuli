@@ -15,7 +15,7 @@ constructor(private http:HttpClient, private router:Router){}
 register(user:any){
   this.http.post(this.authURL + 'register', user,).subscribe({
     next:(res)=>{
-      console.log("Regisztráció sikeres!", res),
+      console.log("Küldés sikeres!", res),
       this.router.navigate(['/verify'])
     },
     error:(err)=>{

@@ -8,7 +8,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./bejel.component.css'],
 })
 export class BejelComponent {
- 
+
 }
 
 	

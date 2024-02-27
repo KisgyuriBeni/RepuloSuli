@@ -1,5 +1,6 @@
 .card{
     border:none;
+    background-color: rgba(255,255,255,0.5);
 }
 .container{
     min-height: 80vh;
@@ -9,5 +10,5 @@
     background-color: white;
 }
 .btn:hover{
-    background-color: rgb(0, 0, 0, 0.2);
+    background-color: rgb(0, 0, 0, 0.2);  
 }

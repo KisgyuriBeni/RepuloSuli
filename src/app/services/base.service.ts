@@ -17,5 +17,12 @@ getAirplanes(target:any){
 getCourses(target:any){
   return this.http.get(this.baseURL+target)
 }
+
+updateOneUser(body:any){
+  return this.http.post(this.baseURL+'userupdate/'+body.id,body)
+}
+deleteOneUser(id:number){
+  return this.http.delete(this.baseURL+'userdelete/'+id)
+}
   
 }

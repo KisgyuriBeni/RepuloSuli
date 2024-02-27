@@ -1,57 +1,63 @@
 <div class="container">
-    <div class="card shadow mt-5 p-3">
-        <h4 class="p-2 text-center mb-3">Adatlap</h4>
-        <div class="content">
-            <div class="mb-3 row">
-                <label for="firstname" class="col-sm-2 col-form-label">Vezetéknév</label>
-                <div class="col-sm-10">
-                  <input type="text" class="form-control" id="firstname">
-                </div>
-            </div>
-            <div class="mb-3 row">
-                <label for="lastname" class="col-sm-2 col-form-label">Keresztnév</label>
-                <div class="col-sm-10">
-                  <input type="text" class="form-control" id="lastname">
-                </div>
-            </div>
-            <div class="mb-3 row">
-                <label for="mothersname" class="col-sm-2 col-form-label">Anyja neve</label>
-                <div class="col-sm-10">
-                  <input type="text" class="form-control" id="mothersname">
-                </div>
-            </div>
-            <div class="mb-3 row">
-                <label for="birthofdate" class="col-sm-2 col-form-label">Születési dátum</label>
-                <div class="col-sm-10">
-                    <div class="input-group mb-3">
-                        <input type="date" class="form-control" id="birthofdate">
+        <div class="card shadow mt-5 p-3">
+            <h4 class="p-2 text-center mb-3">Adatlap</h4>
+            <div class="content">
+                <div class="mb-3 row">
+                    <label for="email" class="col-sm-2 col-form-label">Emailcím</label>
+                    <div class="col-sm-10">
+                      <input type="email" class="form-control" id="email">
                     </div>
                 </div>
+                <div class="mb-3 row">
+                    <label for="firstname" class="col-sm-2 col-form-label">Vezetéknév</label>
+                    <div class="col-sm-10">
+                      <input type="text" class="form-control" id="firstname">
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <label for="lastname" class="col-sm-2 col-form-label">Keresztnév</label>
+                    <div class="col-sm-10">
+                      <input type="text" class="form-control" id="lastname">
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <label for="mothersname" class="col-sm-2 col-form-label">Anyja neve</label>
+                    <div class="col-sm-10">
+                      <input type="text" class="form-control" id="mothersname">
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <label for="birthofdate" class="col-sm-2 col-form-label">Születési dátum</label>
+                    <div class="col-sm-10">
+                        <div class="input-group mb-3">
+                            <input type="date" class="form-control" id="birthofdate">
+                        </div>
+                    </div>
+                </div>
+                <div class="row g-3 mb-3">
+                    <div class="col-sm">
+                        <label for="city" class="col-sm-2 col-form-label">Város</label>
+                        <input type="text" class="form-control" id="city">
+                    </div>
+                    <div class="col-sm">
+                        <label for="street" class="col-sm-2 col-form-label">Utca</label>
+                        <input type="text" class="form-control" id="street">
+                    </div>
+                    <div class="col-sm">
+                        <label for="housenumber" class="col-sm-2 col-form-label">Házszám</label>
+                        <input type="text" class="form-control" id="housenumber">
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <label for="phonenumber" class="col-sm-2 col-form-label">Telefonszám</label>
+                    <div class="col-sm-10">
+                      <input type="text" class="form-control" id="phonenumber">
+                    </div>
+                </div>
+                <div class="text-center">
+                    <button type="button" class="btn btn-light me-2">Mentés</button>
+                    <button type="button" class="btn btn-light" routerLink="/profil">Vissza</button>
+                </div>                   
             </div>
-            <div class="row g-3 mb-3">
-                <div class="col-sm">
-                    <label for="city" class="col-sm-2 col-form-label">Város</label>
-                    <input type="text" class="form-control" id="city">
-                </div>
-                <div class="col-sm">
-                    <label for="street" class="col-sm-2 col-form-label">Utca</label>
-                    <input type="text" class="form-control" id="street">
-                </div>
-                <div class="col-sm">
-                    <label for="housenumber" class="col-sm-2 col-form-label">Házszám</label>
-                    <input type="text" class="form-control" id="housenumber">
-                </div>
-            </div>
-            <div class="mb-3 row">
-                <label for="phonenumber" class="col-sm-2 col-form-label">Telefonszám</label>
-                <div class="col-sm-10">
-                  <input type="text" class="form-control" id="phonenumber">
-                </div>
-            </div>
-            <div class="text-center">
-                <button type="button" class="btn btn-light me-2">Mentés</button>
-                <button type="button" class="btn btn-light" routerLink="/profil">Vissza</button>
-            </div>                   
         </div>
     </div>
-</div>
