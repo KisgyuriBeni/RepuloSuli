@@ -30,6 +30,7 @@ Route::group(["middleware" => ["auth:sanctum"]], function() {
     Route::post("/userupdate", [UserController::class, "updateUser"]);
     Route::post("/attach", [UserController::class, "attach"]);
     Route::post("/detach", [UserController::class, "detach"]);
+    Route::post("/modifypassword", [AuthController::class, "modifyPassword"]);
 
 });
 
@@ -55,6 +56,8 @@ Route::get("/onecourse",[CourseController::class,"getCourseById"]);
 
 Route::get("/airplanes", [AirplaneController::class, "getAirplanes"]);
 Route::get("/oneairplane",[AirplaneController::class,"getAirplaneById"]);
+
+
 
 
 

@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use App\Http\Requests\UserRegisterChecker;
 use App\Http\Requests\UserLoginChecker;
+use App\Http\Requests\PasswordChecker;
 use Carbon\Carbon;
 
 class AuthController extends ResponseController {
@@ -65,6 +66,19 @@ class AuthController extends ResponseController {
         return $this->sendResponse([], "Sikeres kijelentkezés");
     }
 
+    public function modifyPassword(PasswordChecker $request) {
+
+        $request->validated();
+        $user = auth("sanctum")->user()->currentAccessToken();
+        //$input = $request->all();
+        $input["password"] = bcrypt($input["password"]);
+        //TODO: userbe beletenni a jelszot
+        $user = User::create($input); //TODO: save
+
+        $success ["user_name"] =$user->user_name;
+        return $this->sendResponse($success, "Sikeres jelszó változtatás");
+        
+    }
 
     
 }

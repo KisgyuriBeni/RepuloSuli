@@ -93,12 +93,7 @@ class UserController extends ResponseController {
 
 }
 
+    
 
 
 
-// if(auth("sanctum")->user()->is_admin==1) {
-
-// } else {
-           
-//     return $this->sendError("Sikertelen azonosítás", 401);
-// };
