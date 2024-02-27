@@ -38,7 +38,7 @@
     <div class="row">
         <div class="col-6">
             <h2>
-                Üdvözöljük !
+                Üdvözöljük  !
             </h2>
             <p class="mt-4 p-2">
                 Itt tudja megtekinteni az Adatlapján szereplő személyes adatait <br>
@@ -72,13 +72,14 @@
         </div>
     </div>
 </div>
-    <div class="row">
+    <div class="row" *ngFor="let user of users">
         <div class="col-6">
             <div class="card shadow">
                 <h3 class="p-3 text-center">Adatlap</h3>
                 <div class="card-body">
                     <div>
                         <!-- adatbetöltés helye        -->
+                        {{users|json}}
                     </div>                         
                 </div>
               </div>

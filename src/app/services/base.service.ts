@@ -4,6 +4,18 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class BaseService {
+baseURL="http://localhost:8000/api/"
 
+constructor(private http:HttpClient){}
 
+getUsers(target:any){
+  return this.http.get(this.baseURL+target)
+}
+getAirplanes(target:any){
+  return this.http.get(this.baseURL+target)
+}
+getCourses(target:any){
+  return this.http.get(this.baseURL+target)
+}
+  
 }
