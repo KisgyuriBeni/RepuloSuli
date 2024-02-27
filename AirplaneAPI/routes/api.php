@@ -23,30 +23,38 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+//login
 Route::group(["middleware" => ["auth:sanctum"]], function() {
     Route::post("/logout", [AuthController::class, "logout"]);
     Route::get("/oneuser",[UserController::class,"getUserById"]);
+    Route::post("/userupdate", [UserController::class, "updateUser"]);
     Route::post("/attach", [UserController::class, "attach"]);
     Route::post("/detach", [UserController::class, "detach"]);
+
 });
 
+
+//admin
 Route::get("/users", [UserController::class, "getUsers"]);
-Route::post("/userupdate", [UserController::class, "updateUser"]);
 Route::delete("/userdelete", [UserController::class, "deleteUser"]);
 
+Route::delete("/coursedelete", [CourseController::class, "deleteCourse"]);
+Route::post("/coursecreate", [CourseController::class, "createCourse"]);
+Route::post("/courseupdate", [CourseController::class, "updateCourse"]);
+
+Route::post("/airplaneupdate", [AirplaneController::class, "updateAirplane"]);
+Route::delete("/airplanedelete", [AirplaneController::class, "deleteAirplane"]);
+Route::post("/airplanecreate", [AirplaneController::class, "createAirplane"]);
+
+//public
 Route::post("/register", [AuthController::class, "register"])->middleware("throttle:100, 43200");
 Route::post("/login", [AuthController::class, "login"])->middleware("throttle:100, 43200");
 
-
-
 Route::get("courses", [CourseController::class, "getCourses"]);
 Route::get("/onecourse",[CourseController::class,"getCourseById"]);
-Route::post("/coursecreate", [CourseController::class, "createCourse"]);
-Route::post("/courseupdate", [CourseController::class, "updateCourse"]);
-Route::delete("/coursedelete", [CourseController::class, "deleteCourse"]);
 
 Route::get("/airplanes", [AirplaneController::class, "getAirplanes"]);
 Route::get("/oneairplane",[AirplaneController::class,"getAirplaneById"]);
-Route::post("/airplanecreate", [AirplaneController::class, "createAirplane"]);
-Route::post("/airplaneupdate", [AirplaneController::class, "updateAirplane"]);
-Route::delete("/airplanedelete", [AirplaneController::class, "deleteAirplane"]);
+
+
+

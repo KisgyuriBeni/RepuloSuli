@@ -36,6 +36,7 @@ class AuthController extends ResponseController {
             $success["token"]=$user->createToken($user->user_name."token")->plainTextToken;
             $success["user_name"] = $user->user_name;
             return $this->sendResponse($success, "Sikeres bejelentkezés");
+            
         }else{
             $loginAttempts=(new BanController)->getLoginAttempts($request->email);
             $bannedTime=(new BanController)->getBannedTime($request->email);
@@ -63,4 +64,7 @@ class AuthController extends ResponseController {
     
         return $this->sendResponse([], "Sikeres kijelentkezés");
     }
+
+
+    
 }

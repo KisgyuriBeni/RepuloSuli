@@ -5,17 +5,28 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Http\Requests\UserRegisterChecker;
-use App\Http\Controllers\Api\ResponseController;
+use App\Http\Controllers\ResponseController;
+use Illuminate\Support\Facades\Auth;
 
 
 
-class UserController extends Controller {
+class UserController extends ResponseController {
     
     public function getUsers() {
-        $users = User::with("courses")->get();
 
+
+        if(auth("sanctum")->user()->is_admin==1) {
+
+            $users = User::with("courses")->get();
         return $users;
+
+        } else {
+                   
+            return $this->sendError("Sikertelen azonosítás", 401);
+        };
+
         
+    
     }
 
     public function getUserById(Request $request) {
@@ -26,15 +37,27 @@ class UserController extends Controller {
     }
 
     public function deleteUser(Request $request) {
-        $user = User::find($request["id"]);
-        $user->courses()->detach();
 
-        $user->delete();
-        return $user;
+        if(auth("sanctum")->user()->is_admin==1) {
+
+            $user = User::find($request["id"]);
+            $user->courses()->detach();
+
+            $user->delete();
+            return $user;
+        } else {
+                   
+            return $this->sendError("Sikertelen azonosítás", 401);
+        };
+        
+        
+        
 
     }
 
     public function updateUser(Request $request) {
+
+       
 
         $user = User::find($request["id"]);
         $user -> user_name = $request["user_name"];
@@ -47,21 +70,35 @@ class UserController extends Controller {
         $user -> address = $request["address"];
         $user -> birth_day = $request["birth_day"];
         
-
         $user -> save();
         return $user;
+
     }
 
     public function attach(Request $request) {
         $user = User::find($request["user_id"]);
         $user->courses()->attach($request["course_id"]);
-        return "Sikeres összekapcsolás";
+
+        $success["user_name"] = $user->user_name;
+        return $this->sendResponse($success, "Sikeres összekapcsolás");
     }
 
     public function detach(Request $request) {
         $user = User::find($request["user_id"]);
         $user->courses()->detach($request["course_id"]);
-        return "Sikeres leválasztás";
+
+        $success["user_name"] = $user->user_name;
+        return $this->sendResponse($success, "Sikeres leválasztás");
     }
 
 }
+
+
+
+
+// if(auth("sanctum")->user()->is_admin==1) {
+
+// } else {
+           
+//     return $this->sendError("Sikertelen azonosítás", 401);
+// };

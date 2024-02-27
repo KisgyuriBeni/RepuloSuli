@@ -21,31 +21,53 @@ class AirplaneController extends Controller {
     }
 
     public function deleteAirplane(Request $request) {
-        $airplane = Airplane::find($request["id"]);
 
-        $airplane->delete();
-        return $airplane;
+        if(auth("sanctum")->user()->is_admin==1) {
 
+            $airplane = Airplane::find($request["id"]);
+
+            $airplane->delete();
+            return $airplane;
+
+        } else {
+                   
+            return $this->sendError("Sikertelen azonosítás", 401);
+        };
+        
     }
 
     public function updateAirplane(Request $request) {
 
-        $airplane = Airplane::find($request["id"]);
-        $airplane -> airplane_name = $request["airplane_name"];
-        $airplane -> propulsion = $request["propulsion"];
+        if(auth("sanctum")->user()->is_admin==1) {
 
-        $airplane -> save();
-        return $airplane;
+            $airplane = Airplane::find($request["id"]);
+            $airplane -> airplane_name = $request["airplane_name"];
+            $airplane -> propulsion = $request["propulsion"];
+
+            $airplane -> save();
+            return $airplane;
+
+        } else {
+                   
+            return $this->sendError("Sikertelen azonosítás", 401);
+        };
     }
 
     public function createAirplane(Request $request) {
 
-        $airplane = new Airplane;
-        $airplane -> id = $request["id"];
-        $airplane -> airplane_name = $request["airplane_name"];
-        $airplane -> propulsion = $request["propulsion"];
+        if(auth("sanctum")->user()->is_admin==1) {
 
-        $airplane -> save();
-        return $airplane;
+            $airplane = new Airplane;
+            $airplane -> id = $request["id"];
+            $airplane -> airplane_name = $request["airplane_name"];
+            $airplane -> propulsion = $request["propulsion"];
+
+            $airplane -> save();
+            return $airplane;
+
+        } else {
+                   
+            return $this->sendError("Sikertelen azonosítás", 401);
+        };
     }
 }
