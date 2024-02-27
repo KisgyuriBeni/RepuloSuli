@@ -18,6 +18,10 @@ import { AdatlapComponent } from './parts/adatlap/adatlap.component';
 import { JelentkComponent } from './parts/jelentk/jelentk.component';
 import { TajekoztatoComponent } from './parts/tajekoztato/tajekoztato.component';
 import { FooterComponent } from './parts/footer/footer.component';
+import { AdminComponent } from './admin/admin/admin.component';
+import { RepulokComponent } from './admin/repulok/repulok.component';
+import { FelhasznalokComponent } from './admin/felhasznalok/felhasznalok.component';
+import { KepzesekComponent } from './admin/kepzesek/kepzesek.component';
 
 
 @NgModule({
@@ -34,7 +38,11 @@ import { FooterComponent } from './parts/footer/footer.component';
     AdatlapComponent,
     JelentkComponent,
     TajekoztatoComponent,
-    FooterComponent
+    FooterComponent,
+    AdminComponent,
+    RepulokComponent,
+    FelhasznalokComponent,
+    KepzesekComponent
   ],
   imports: [
     BrowserModule,
