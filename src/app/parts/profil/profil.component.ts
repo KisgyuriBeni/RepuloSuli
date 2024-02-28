@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AuthService } from 'src/app/services/auth.service';
 import { BaseService } from 'src/app/services/base.service';
 
 @Component({
@@ -7,28 +8,6 @@ import { BaseService } from 'src/app/services/base.service';
   styleUrls: ['./profil.component.css']
 })
 export class ProfilComponent {
-users:any
-courses:any
 
-constructor(private base:BaseService){
-  this.base.getUsers('users').subscribe({
-    next:(res)=>{
-      console.log(res),
-      this.users=res
-    },
-    error:(e)=>{
-      console.error(e)
-    }
-  })
-  this.base.getCourses('courses').subscribe({
-    next:(res)=>{
-      console.log(res),
-      this.courses=res
-    },
-    error:(e)=>{
-      console.error(e)
-    }
-  })
-}
-  
+
 }
