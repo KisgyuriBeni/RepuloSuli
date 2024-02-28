@@ -69,11 +69,10 @@ class AuthController extends ResponseController {
     public function modifyPassword(PasswordChecker $request) {
 
         $request->validated();
-        $user = auth("sanctum")->user()->currentAccessToken();
-        //$input = $request->all();
-        $input["password"] = bcrypt($input["password"]);
-        //TODO: userbe beletenni a jelszot
-        $user = User::create($input); //TODO: save
+        $user = Auth::user();
+        $user -> password = bcrypt($request["password"]);
+        
+        $user -> save();
 
         $success ["user_name"] =$user->user_name;
         return $this->sendResponse($success, "Sikeres jelszó változtatás");
