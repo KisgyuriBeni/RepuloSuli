@@ -9,13 +9,8 @@ import { Observable } from 'rxjs/internal/Observable';
   providedIn: 'root'
 })
 export class AuthService {
-userId(userId: any, token: any) {
-  throw new Error('Method not implemented.');
-}
+
 authURL="http://localhost:8000/api/"
-user:any={}
-token: any = null 
-userId: any  // Az azonosító inicializálása
 
 constructor(private http:HttpClient, private router:Router){}
 
@@ -31,15 +26,11 @@ register(user:any){
   })
 }
 login(user: any): Observable<any> {
-  return this.http.post<any>(this.authURL + 'login', user).pipe(
-    tap(res => {
-      if (res.token && res.userId) { // Az azonosító beállítása, ha elérhető
-        this.token = res.token;
-        this.userId = res.userId;
-      }
-      this.router.navigate(['/profil']);
-    })
-  );
+  return this.http.post<any>(`${this.authURL}login`, user)
 }
-
+logout(): Observable<any> {
+  const token = localStorage.getItem('token');
+  const headers = { 'Authorization': 'Bearer ' + token };
+  return this.http.post<any>(`${this.authURL}logout`, { headers });
+}
 }

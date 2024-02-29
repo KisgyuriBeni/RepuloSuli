@@ -10,22 +10,21 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrls: ['./bejel.component.css'],
 })
 export class BejelComponent{
-  user: any = { email: '', password: '' }
-  constructor(private auth: AuthService, private router:Router) { }
 
-  login() {
-    this.auth.login(this.user).subscribe({
-      next: (res: any) => {
-        console.log("Login successful:", res)
-        this.auth.token = res.token
-        this.router.navigate(['/profil'])
-      },
-      error: (err: any) => {
-        console.error("Login error:", err)
-       
-      }
-    })
-  }
+ user:any={ email:'', password:'' }
+ 
+ constructor(private auth:AuthService, private router:Router){}
+
+ login(){
+  this.auth.login(this.user).subscribe(
+    (res)=>{
+      localStorage.setItem('token', res.token);
+      console.log(res)
+      this.router.navigate(['/profil'])
+    },
+    (err)=>console.error("Hiba!", err)
+  )
+ }
 }
 
 	
