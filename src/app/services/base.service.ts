@@ -25,8 +25,12 @@ updateOneUser(body:any){
 deleteOneUser(id:number){
   return this.http.delete(this.baseURL+'userdelete/'+id)
 }
-getOneUser(id:number){
-  return this.http.get(this.baseURL+'getoneuser/'+id)
+getOneUser(userId:number){
+  let token = localStorage.getItem('token')
+  const headers = new HttpHeaders({
+    'Authorization': `Bearer ${token}` // Adjuk hozzá a tokent a fejléchez
+  });
+  return this.http.get(this.baseURL+'oneuser/'+userId, {headers})
 }
 
 

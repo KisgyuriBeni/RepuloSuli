@@ -9,9 +9,18 @@ import { Observable } from 'rxjs/internal/Observable';
 })
 export class AuthService {
 
-authURL="http://localhost:8000/api/"
+authURL = "http://localhost:8000/api/"
+private userId!:number
 
 constructor(private http:HttpClient, private router:Router){}
+
+
+setUserId(id:number){
+  this.userId = id
+}
+getUserId(){
+  return this.userId
+}
 
 register(user:any){
   this.http.post(this.authURL + 'register', user,).subscribe({
