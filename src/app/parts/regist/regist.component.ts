@@ -10,10 +10,17 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class RegistComponent {
 newUser:any={}
+isSpinning:boolean = false
 
 constructor(private auth:AuthService, private router:Router){}
 
 registration(){
+  this.isSpinning=true
+  
   this.auth.register(this.newUser)
+
+  setTimeout(() => {
+    this.isSpinning = false;
+  }, 1000);
 }
 }

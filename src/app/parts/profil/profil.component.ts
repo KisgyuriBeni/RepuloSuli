@@ -10,19 +10,14 @@ import { BaseService } from 'src/app/services/base.service';
 })
 export class ProfilComponent {
 
-  constructor(private auth:AuthService, private router:Router){}
+constructor(private auth:AuthService, private router:Router){}
 
   logout() {
-    this.auth.logout().subscribe(
-      (res) => {
-        console.log(res)
+    let token=localStorage.getItem('token');
+    this.auth.logout(token)
+        console.log("Sikeresen kijelentkezett!")
         localStorage.removeItem('token')
-        this.router.navigate(['/bejel']);
-      },
-      err => {
-        console.error('Hiba történt a kijelentkezés során:', err);
-      }
-    );
+        this.router.navigate(['/bejel'])
   }
 
 }
