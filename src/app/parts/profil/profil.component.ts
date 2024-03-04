@@ -9,8 +9,16 @@ import { BaseService } from 'src/app/services/base.service';
   styleUrls: ['./profil.component.css']
 })
 export class ProfilComponent {
+user:any
 
-constructor(private auth:AuthService, private router:Router){}
+constructor(private auth:AuthService, private router:Router, private base:BaseService){
+
+  this.base.getOneUser().subscribe(
+    (res)=>{
+      this.user=res
+      console.log(res)
+    })
+}
 
   logout() {
     let token=localStorage.getItem('token');

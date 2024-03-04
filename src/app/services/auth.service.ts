@@ -1,8 +1,6 @@
-import { Token } from '@angular/compiler';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { BehaviorSubject, tap } from 'rxjs';
 import { Observable } from 'rxjs/internal/Observable';
 
 
@@ -26,9 +24,11 @@ register(user:any){
     }
   })
 }
+
 login(user: any): Observable<any> {
   return this.http.post<any>(`${this.authURL}login`, user)
 }
+
 logout(token:any): Observable<any> {
   const headers = new HttpHeaders(token)
   return this.http.post<any>(`${this.authURL}logout`, { headers });

@@ -1,9 +1,5 @@
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
-import { Token } from '@angular/compiler';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs/internal/Observable';
-import { throwError } from 'rxjs/internal/observable/throwError';
-import { catchError } from 'rxjs/internal/operators/catchError';
 import { AuthService } from './auth.service';
 @Injectable({
   providedIn: 'root'
@@ -29,7 +25,9 @@ updateOneUser(body:any){
 deleteOneUser(id:number){
   return this.http.delete(this.baseURL+'userdelete/'+id)
 }
-
+getOneUser(id:number){
+  return this.http.get(this.baseURL+'getoneuser/'+id)
+}
 
 
   
