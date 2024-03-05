@@ -31,13 +31,13 @@ Route::group(["middleware" => ["auth:sanctum"]], function() {
     Route::post("/attach", [UserController::class, "attach"]);
     Route::post("/detach", [UserController::class, "detach"]);
     Route::post("/modifypassword", [AuthController::class, "modifyPassword"]);
+    Route::delete("/userdelete", [UserController::class, "deleteUser"]);
 
 });
 
 
 //admin
 Route::get("/users", [UserController::class, "getUsers"]);
-Route::delete("/userdelete", [UserController::class, "deleteUser"]);
 
 Route::delete("/coursedelete", [CourseController::class, "deleteCourse"]);
 Route::post("/coursecreate", [CourseController::class, "createCourse"]);

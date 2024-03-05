@@ -19,7 +19,7 @@ class AuthController extends ResponseController {
         $input["password"] = bcrypt($input["password"]);
         $user = User::create($input);
         $success ["user_name"] =$user->user_name;
-
+        $success["id"]= $user->id;
         return $this->sendResponse($success, "Sikeres regisztráció");
     }
 
@@ -36,6 +36,7 @@ class AuthController extends ResponseController {
             (new BanController)->resetBannedData($user->email);
             $success["token"]=$user->createToken($user->user_name."token")->plainTextToken;
             $success["user_name"] = $user->user_name;
+            $success["id"]= $user->id;
             return $this->sendResponse($success, "Sikeres bejelentkezés");
             
         }else{
