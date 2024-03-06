@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { AuthService } from './auth.service';
+import { Observable } from 'rxjs/internal/Observable';
 @Injectable({
   providedIn: 'root'
 })
@@ -25,12 +26,8 @@ updateOneUser(body:any){
 deleteOneUser(id:number){
   return this.http.delete(this.baseURL+'userdelete/'+id)
 }
-getOneUser(userId:number){
-  let token = localStorage.getItem('token')
-  const headers = new HttpHeaders({
-    'Authorization': `Bearer ${token}` // Adjuk hozzá a tokent a fejléchez
-  });
-  return this.http.get(this.baseURL+'oneuser/'+userId, {headers})
+getOneUser(id: any): Observable<any> {
+  return this.http.get<any>(`${this.baseURL}login?id=${id}` )
 }
 
 

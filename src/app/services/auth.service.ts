@@ -14,14 +14,6 @@ private userId!:number
 
 constructor(private http:HttpClient, private router:Router){}
 
-
-setUserId(id:number){
-  this.userId = id
-}
-getUserId(){
-  return this.userId
-}
-
 register(user:any){
   this.http.post(this.authURL + 'register', user,).subscribe({
     next:(res)=>{
