@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 import { BaseService } from 'src/app/services/base.service';
 import { BejelComponent } from '../bejel/bejel.component';
+import { NgLocaleLocalization } from '@angular/common';
 
 @Component({
   selector: 'app-profil',
@@ -11,29 +12,27 @@ import { BejelComponent } from '../bejel/bejel.component';
 })
 export class ProfilComponent {
 user:any
-constructor(private auth:AuthService, private router:Router, private base:BaseService){
-this.getOneUserById()
 
+constructor(private auth:AuthService, private router:Router, private base:BaseService){
+  this.getOneUserById()
 }
-getOneUserById(){
-  let userId = this.auth.getUserId();
-  if (userId) {
-    this.base.getOneUser(userId).subscribe(
-      (res) => {
+
+  getOneUserById(){
+    let id = localStorage.getItem('id')
+    this.base.getOneUser(id).subscribe(
+      (res)=>{
         this.user = res
         console.log(res)
       }
-    );
-  } else {
-    console.error('Az userId értéke nem elérhető.');
+    )
   }
-}
 
   logout() {
     let token=localStorage.getItem('token');
     this.auth.logout(token)
     console.log("Sikeresen kijelentkezett!")
     localStorage.removeItem('token')
+    localStorage.removeItem('id')
     this.router.navigate(['/bejel'])
   }
 

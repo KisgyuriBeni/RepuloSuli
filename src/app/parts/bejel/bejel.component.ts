@@ -21,7 +21,7 @@ login(){
   this.isSpinning = true;
   this.auth.login(this.user).subscribe(
     (res) => {
-      localStorage.setItem('id', res.data.token)
+      localStorage.setItem('id', res.data.id)
       localStorage.setItem('token', res.data.token)
       console.log(res)
       this.router.navigate(['/profil'])

@@ -26,8 +26,10 @@ updateOneUser(body:any){
 deleteOneUser(id:number){
   return this.http.delete(this.baseURL+'userdelete/'+id)
 }
-getOneUser(id: any): Observable<any> {
-  return this.http.get<any>(`${this.baseURL}login?id=${id}` )
+getOneUser(id:any){
+  let token = localStorage.getItem('token')
+  const headers = new HttpHeaders({'Authorization': `Bearer ${token}`});
+  return this.http.get(this.baseURL+'oneuser/'+id, {headers})
 }
 
 
