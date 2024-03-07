@@ -14,10 +14,11 @@ class AirplaneController extends Controller {
         return $airplanes;
     }
 
-    public function getAirplaneById(Request $request) {
-        $airplane = Airplane::find($request["id"]);
+    public function getAirplaneById($id) {
+        $airplane = Airplane::where("id", $id)->first();
 
         return $airplane;
+        
     }
 
     public function deleteAirplane(Request $request) {
@@ -58,7 +59,6 @@ class AirplaneController extends Controller {
         if(auth("sanctum")->user()->is_admin==1) {
 
             $airplane = new Airplane;
-            $airplane -> id = $request["id"];
             $airplane -> airplane_name = $request["airplane_name"];
             $airplane -> propulsion = $request["propulsion"];
 

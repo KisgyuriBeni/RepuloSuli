@@ -12,8 +12,9 @@ class CourseController extends Controller {
         return $courses;
     }
 
-    public function getCourseById(Request $request) {
-        $course = Course::find($request["id"]);
+    public function getCourseById($id) {
+        $course = Course::where("id", $id)->first();
+        
 
         return $course->with("airplane")->get();
     }

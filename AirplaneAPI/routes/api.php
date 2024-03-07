@@ -26,7 +26,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 //login
 Route::group(["middleware" => ["auth:sanctum"]], function() {
     Route::post("/logout", [AuthController::class, "logout"]);
-    Route::get("/oneuser",[UserController::class,"getUserById"]);
+    Route::get("/oneuser/{id}",[UserController::class,"getUserById"]);
     Route::post("/userupdate", [UserController::class, "updateUser"]);
     Route::post("/attach", [UserController::class, "attach"]);
     Route::post("/detach", [UserController::class, "detach"]);
@@ -52,10 +52,10 @@ Route::post("/register", [AuthController::class, "register"])->middleware("throt
 Route::post("/login", [AuthController::class, "login"])->middleware("throttle:100, 43200");
 
 Route::get("courses", [CourseController::class, "getCourses"]);
-Route::get("/onecourse",[CourseController::class,"getCourseById"]);
+Route::get("/onecourse/{id}",[CourseController::class,"getCourseById"]);
 
 Route::get("/airplanes", [AirplaneController::class, "getAirplanes"]);
-Route::get("/oneairplane",[AirplaneController::class,"getAirplaneById"]);
+Route::get("/oneairplane/{id}",[AirplaneController::class,"getAirplaneById"]);
 
 
 

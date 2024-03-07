@@ -30,10 +30,12 @@ class UserController extends ResponseController {
     
     }
 
-    public function getUserById(Request $request) {
-        $user = User::find($request["id"]);
+    public function getUserById($id) {
 
-        return $user->with("courses")->get();;
+
+        $user = User::where("id", $id)->with("courses")->first();
+
+        return $user;
         
     }
 
