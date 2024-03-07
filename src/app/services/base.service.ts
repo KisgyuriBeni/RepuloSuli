@@ -31,7 +31,11 @@ getOneUser(id:any){
   const headers = new HttpHeaders({'Authorization': `Bearer ${token}`});
   return this.http.get(this.baseURL+'oneuser/'+id, {headers})
 }
-
+addUserData(data:any){
+  let token = localStorage.getItem('token')
+  const headers = new HttpHeaders({'Authorization': `Bearer ${token}`});
+ return this.http.post(this.baseURL+'userupdate' , data, {headers})
+}
 
   
 }
