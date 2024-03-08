@@ -2,12 +2,14 @@
   font-size: 3rem;
 }
 .card{
+  position: absolute;
   background-color: rgba(255,255,255,0.5); 
   margin: 0 auto;
+  margin-top: 100px;
 }
 .container{
-  margin-top: 20px;
-  min-height: 100vh;
+  position: relative;
+  min-height: 90vh;
 }
 .inp{
   border-radius: 20px;

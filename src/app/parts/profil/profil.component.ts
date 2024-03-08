@@ -12,7 +12,8 @@ import { NgLocaleLocalization } from '@angular/common';
 })
 export class ProfilComponent {
 user:any
-
+isAdmin: boolean = false;
+isLoggedin:boolean=true
 constructor(private auth:AuthService, private router:Router, private base:BaseService){
   this.getOneUserById()
 }
@@ -23,16 +24,23 @@ constructor(private auth:AuthService, private router:Router, private base:BaseSe
       (res)=>{
         this.user = res
         console.log(res)
+        if(this.user.isadmin == 1){
+          this.isAdmin=true;
+        }
+        else{
+          this.isAdmin=false
+        }
       }
     )
   }
-
+ 
   logout() {
     let token=localStorage.getItem('token');
     this.auth.logout(token)
     console.log("Sikeresen kijelentkezett!")
     localStorage.removeItem('token')
     localStorage.removeItem('id')
+    this.isLoggedin = false;
     this.router.navigate(['/bejel'])
   }
 

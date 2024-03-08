@@ -20,7 +20,7 @@
                 <button type="button" class="btn btn-light">Lemondás</button>
             </div>
             <div class="offParagraph text-center">
-                <button type="button" class="btn btn-light mb-1" routerLink="/admin">Admin felület</button>
+                <button type="button" class="btn btn-light mb-1" routerLink="/admin" *ngIf="user?.isadmin === 1">Admin felület</button>
                 <button type="button" class="btn btn-light mb-1">Új jelszó</button>
                 <button type="button" class="btn btn-light" (click)="logout()">Kilépés</button>
             </div>
@@ -31,7 +31,7 @@
 <div class="card p-3 shadow mt-5 mb-3">
     <div class="row">
         <div class="col-auto me-auto" >
-            <h2 >Üdvözöljük  , a profilján!</h2>
+            <h2 >Üdvözöljük a profilján!</h2>
         </div>
         <div class="col-auto">
             <div class="p-2">

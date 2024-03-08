@@ -1,9 +1,11 @@
 <html>
+<head>
   <link rel="stylesheet" href="app.component.css">
-  <app-nav></app-nav>
-  <div>
-    <router-outlet></router-outlet>
-  </div>
+</head>
+<body>
+  <app-nav *ngIf="isLoggedin"></app-nav>
+  <router-outlet></router-outlet>
   <app-footer></app-footer>
+</body>
 </html>
 

@@ -10,7 +10,7 @@ import { Observable } from 'rxjs/internal/Observable';
 export class AuthService {
 
 authURL = "http://localhost:8000/api/"
-private userId!:number
+
 
 constructor(private http:HttpClient, private router:Router){}
 
@@ -18,7 +18,7 @@ register(user:any){
   this.http.post(this.authURL + 'register', user,).subscribe({
     next:(res)=>{
       console.log("Küldés sikeres!", res),
-      this.router.navigate(['/verify'])
+      this.router.navigate(['/bejel'])
     },
     error:(err)=>{
       console.error("Regisztráció sikeretelen! Próbálja újra",err)

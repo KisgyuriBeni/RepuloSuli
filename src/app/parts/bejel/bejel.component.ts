@@ -13,7 +13,8 @@ import { BaseService } from 'src/app/services/base.service';
 })
 export class BejelComponent{
 user:any={ email:'', password:'' }
-isSpinning:boolean = false;
+isSpinning:boolean = false
+isLoggedin:boolean=false
 
 constructor(private auth:AuthService, private router:Router, private base:BaseService){}
 
@@ -23,11 +24,11 @@ login(){
     (res) => {
       localStorage.setItem('id', res.data.id)
       localStorage.setItem('token', res.data.token)
+      this.isLoggedin = true
       console.log(res)
       this.router.navigate(['/profil'])
       setTimeout(() => {
         this.isSpinning = false;
-        // this.base.getOneUser(this.id)
       }, 1000);
     },
     (err) => console.error("Hiba!", err)

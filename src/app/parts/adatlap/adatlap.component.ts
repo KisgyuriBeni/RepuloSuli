@@ -32,11 +32,9 @@ export class AdatlapComponent implements OnInit {
   addUser() {
     const addressString = `${this.data.address.city}` +` `+ `${this.data.address.street}` +` `+ `${this.data.address.number}`;
     this.data.address = addressString;
-    console.log("Összesített cím: ", addressString);
-    console.log("Object cím: ", this.data.address);
     this.base.addUserData(this.data).subscribe(
       (res) => {
-        console.log("Adatok sikeresen felvéve: ", this.data, res);
+        console.log("Adatok sikeresen felvéve: ", res);
       },
       (error) => {
         console.error('Hibás adatbevitel: ', error);
