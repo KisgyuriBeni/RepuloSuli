@@ -20,7 +20,7 @@
                 <button type="button" class="btn btn-light">Lemondás</button>
             </div>
             <div class="offParagraph text-center">
-                <button type="button" class="btn btn-light mb-1" routerLink="/admin" *ngIf="user?.isadmin === 1">Admin felület</button>
+                <button type="button" class="btn btn-light mb-1" routerLink="/admin" *ngIf="isAdmin">Admin felület</button>
                 <button type="button" class="btn btn-light mb-1">Új jelszó</button>
                 <button type="button" class="btn btn-light" (click)="logout()">Kilépés</button>
             </div>

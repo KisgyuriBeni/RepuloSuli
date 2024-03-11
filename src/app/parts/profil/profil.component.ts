@@ -21,8 +21,9 @@ oszlopok=[
   {key:"address", text:"Lakcím"},
   {key:"phone_number", text:"Telefonszám"}
 ]
-isAdmin: boolean = false;
+isAdmin:boolean = false
 isLoggedin:boolean=true
+
 constructor(private auth:AuthService, private router:Router, private base:BaseService){
   this.getOneUserById()
 }
@@ -32,13 +33,8 @@ constructor(private auth:AuthService, private router:Router, private base:BaseSe
     this.base.getOneUser(id).subscribe(
       (res)=>{
         this.user = res
+        this.isAdmin = this.user.is_admin === 1
         console.log(res)
-        if(this.user.isadmin == 1){
-          this.isAdmin=true;
-        }
-        else{
-          this.isAdmin=false
-        }
       }
     )
   }

@@ -21,6 +21,6 @@ registration(){
 
   setTimeout(() => {
     this.isSpinning = false;
-  }, 1000);
+  }, 500);
 }
 }

@@ -28,10 +28,16 @@ login(){
       console.log(res)
       this.router.navigate(['/fooldal'])
       setTimeout(() => {
-        this.isSpinning = false;
-      }, 1000);
+        this.isSpinning = false
+      }, 500)
     },
-    (err) => console.error("Hiba!", err)
+    (err) => {
+      
+      console.error("Bejelentkezési hiba!", err)
+      setTimeout(() => {
+        this.isSpinning = false
+      }, 500)
+    }
   );
 }
  
