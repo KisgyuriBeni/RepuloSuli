@@ -10,7 +10,7 @@ baseURL="http://localhost:8000/api/"
 
 constructor(private http:HttpClient, private auth:AuthService){}
 
-getUsers(){
+getUsers(users:any){
   let token = localStorage.getItem('token')
   const headers = new HttpHeaders({'Authorization': `Bearer ${token}`})
   return this.http.get(this.baseURL+'users', {headers})
