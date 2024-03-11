@@ -21,39 +21,5 @@ oszlopok=[
   {key:"birth_day", text:"Születési dátum", type:"text"},
 ]
 
-constructor(private base:BaseService){
-  this.get()
-}
-get(){
-  this.base.getUsers('users').subscribe({
-    next:(res)=>{
-      this.users=res,
-      console.log(res)
-    },
-    error:(err)=>{
-      console.error(err)
-    }
-  })
-}
-updateUser(user:any){
-  this.base.updateOneUser(user).subscribe({
-    next:()=>{
-      this.get()
-    },
-    error:(err)=>{
-      console.error(err)
-    }
-  })
-}
-deletUser(id:number){
-  console.log(id)
-  this.base.deleteOneUser(id).subscribe({
-    next:()=>{
-      this.get()
-    },
-    error:(err)=>{
-      console.error(err)
-    }
-  })
-}
+constructor(private base:BaseService){}
 }
