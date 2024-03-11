@@ -50,7 +50,7 @@ constructor(private auth:AuthService, private router:Router, private base:BaseSe
     localStorage.removeItem('token')
     localStorage.removeItem('id')
     this.isLoggedin = false;
-    this.router.navigate(['/bejel'])
+    this.router.navigate(['/fooldal'])
   }
 
 }

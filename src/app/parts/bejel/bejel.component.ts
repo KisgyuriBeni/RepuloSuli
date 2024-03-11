@@ -26,7 +26,7 @@ login(){
       localStorage.setItem('token', res.data.token)
       this.isLoggedin = true
       console.log(res)
-      this.router.navigate(['/profil'])
+      this.router.navigate(['/fooldal'])
       setTimeout(() => {
         this.isSpinning = false;
       }, 1000);

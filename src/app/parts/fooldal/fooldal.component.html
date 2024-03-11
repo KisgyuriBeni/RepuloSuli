@@ -1,11 +1,36 @@
-<div class="welcome-header p-3">
-  <h1>
-    Üdvözöl a FunFly csapata
-  </h1>
-  <h2>
-    Repülj velünk először
-  </h2>
-</div>
+<ng-container *ngIf="isLoggedin; else authbase">
+  <div class="welcome-header p-5">
+    <h1>
+      Üdvözöl a FunFly csapata
+    </h1>
+    <h2>
+      Repülj velünk először
+    </h2>
+  </div>
+</ng-container>
+<ng-template #authbase>
+  <div class="welcome-header p-5">
+    <div class="row">
+        <div class="col-auto me-auto" >
+          <h1>
+            Üdvözöl a FunFly csapata
+          </h1>
+          <h2>
+            Repülj velünk először
+          </h2>
+        </div>
+        <div class="col-auto">
+            <div class="p-2">
+              <a routerLink="/bejel" id="authtag">
+                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
+                  <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/>
+                </svg>
+              </a>
+            </div>
+        </div>
+      </div>
+  </div>
+</ng-template >
 <div class="col-12 col-sm-8 col-mb-6 m-auto">
   <div class="welcome-content mb-3">
     <div id="carouselExampleIndicators" class="carousel slide col-12 col-sm8" data-bs-ride="carousel">
@@ -37,9 +62,8 @@
           Az élet túl rövid, hogy mindig a földön két lábbal élj. Mit szólnál szárnyakhoz?                          
       </p>
     </div> 
-    
-
   </div>
+  
 
 <!-- modals -->
     <div class="modal fade modal-lg" id="kepzesekmodal" data-bs-backdrop="static" tabindex="-1" aria-hidden="true">
@@ -131,60 +155,62 @@
         </div>
     </div>            
 <!-- modals -->
-<div class="fastcard-content mb-3">
-  <div class="faststart-content-header">
-    <h2 class="text-center p-2 mb-3">
-      Gyorskezdés
-    </h2>
-  </div> 
-  <div class="row ">
-    <div class="col">
-      <div class="card shadow" id="fastcard">
-          <img src="../assets/images/pilot1.jpg" class="card-img-top" alt="pilot1">
+
+<div class="fastcard-content mb-3" *ngIf="isLoggedin">
+    <div class="faststart-content-header">
+      <h2 class="text-center p-2 mb-3">
+        Gyorskezdés
+      </h2>
+    </div> 
+    <div class="row ">
+      <div class="col">
+        <div class="card shadow" id="fastcard">
+            <img src="../assets/images/pilot1.jpg" class="card-img-top" alt="pilot1">
+            <div class="p-3 text-center">
+              <h5 class="p-1">
+                Képzéseink
+              </h5>
+              <button type="button" id="modalbutton" class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#kepzesekmodal" >
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
+              </svg>
+              </button>
+            </div>
+        </div>     
+      </div>
+      <div class="col">
+        <div class="card shadow"  id="fastcard">
+          <img src="../assets/images/testwriting.jpg" class="card-img-top" alt="pilot1">            
           <div class="p-3 text-center">
             <h5 class="p-1">
-              Képzéseink
+              Mentorprogram
             </h5>
-            <button type="button" id="modalbutton" class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#kepzesekmodal" >
+            <button type="button" id="modalbutton" class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#mentormodal" >
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16">
               <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
             </svg>
             </button>
           </div>
-      </div>     
-    </div>
-    <div class="col">
-      <div class="card shadow"  id="fastcard">
-        <img src="../assets/images/testwriting.jpg" class="card-img-top" alt="pilot1">            
-        <div class="p-3 text-center">
-          <h5 class="p-1">
-            Mentorprogram
-          </h5>
-          <button type="button" id="modalbutton" class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#mentormodal" >
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16">
-            <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
-          </svg>
-          </button>
         </div>
       </div>
-    </div>
-    <div class="col">
-      <div class="card shadow "  id="fastcard">
-        <img src="../assets/images/pilot2.jpg" class="card-img-top" alt="pilot1">            
-        <div class="p-3 text-center">
-          <h5 class="p-1">
-            Típusvizsgák
-          </h5>
-          <button type="button" id="modalbutton" class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#tipusmodal" >
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16">
-            <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
-          </svg>
-          </button>
+      <div class="col">
+        <div class="card shadow "  id="fastcard">
+          <img src="../assets/images/pilot2.jpg" class="card-img-top" alt="pilot1">            
+          <div class="p-3 text-center">
+            <h5 class="p-1">
+              Típusvizsgák
+            </h5>
+            <button type="button" id="modalbutton" class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#tipusmodal" >
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16">
+              <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
+            </svg>
+            </button>
+          </div>
         </div>
       </div>
-    </div>
-  </div>     
+    </div>     
 </div>
+
 
   <div class="aboutus-content mb-3">
     <div class="aboutus-header mb-2 p-2">

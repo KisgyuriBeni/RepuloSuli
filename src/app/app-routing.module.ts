@@ -30,8 +30,8 @@ const routes: Routes = [
   {path: 'adminrep', component:RepulokComponent},
   {path: 'adminfelh', component:FelhasznalokComponent},
   {path: 'adminkepzsk', component:KepzesekComponent},
-  {path: ' ', component:BejelComponent},
-  {path: '**', component:BejelComponent},
+  {path: ' ', component:FooldalComponent},
+  {path: '**', component:FooldalComponent},
 ];
 
 @NgModule({
