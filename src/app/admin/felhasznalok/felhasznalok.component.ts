@@ -8,6 +8,7 @@ import { BaseService } from 'src/app/services/base.service';
 })
 export class FelhasznalokComponent {
 users:any
+
 oszlopok=[
   {key:"id", text:"id", type:"plain"},
   {key:"user_name", text:"Felhasználónév", type:"text"},
@@ -19,6 +20,7 @@ oszlopok=[
   {key:"address", text:"Lakcím", type:"text"},
   {key:"birth_day", text:"Születési dátum", type:"text"},
 ]
+
 constructor(private base:BaseService){
   this.get()
 }
