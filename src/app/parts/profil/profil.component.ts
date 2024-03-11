@@ -12,6 +12,15 @@ import { NgLocaleLocalization } from '@angular/common';
 })
 export class ProfilComponent {
 user:any
+oszlopok=[
+  {key:"user_name", text:"Felhasználó név"},
+  {key:"email", text:"Email cím"},
+  {key:"first_name", text:"Vezeték név"},
+  {key:"last_name", text:"Kereszt név"},
+  {key:"mothers_name", text:"Anyja neve"},
+  {key:"address", text:"Lakcím"},
+  {key:"phone_number", text:"Telefonszám"}
+]
 isAdmin: boolean = false;
 isLoggedin:boolean=true
 constructor(private auth:AuthService, private router:Router, private base:BaseService){

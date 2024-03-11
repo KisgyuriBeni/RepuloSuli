@@ -49,10 +49,15 @@
             <div class="card p-3 shadow" id="datacard">
                 <h3 class="p-3 text-center">Adatlap</h3>
                 <div class="card-body">
-                    <div >
-                        <!-- adatbetöltés helye        -->
-                        {{user|json}}
-                    </div>                         
+                    <div *ngFor="let oszlop of oszlopok" class="row">
+                        <!-- {{user|json}} -->
+                        <div class="col mb-3">
+                            {{oszlop.text}}
+                        </div>
+                        <div class="col">
+                            {{user[oszlop.key]}}
+                        </div>
+                    </div>                       
                 </div>
               </div>
         </div>
