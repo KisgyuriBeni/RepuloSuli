@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { BaseService } from 'src/app/services/base.service';
 
 @Component({
@@ -22,7 +23,7 @@ export class AdatlapComponent implements OnInit {
     phone_number: ''
   };
 
-  constructor(private base: BaseService) {}
+  constructor(private base: BaseService, private router:Router) {}
 
   ngOnInit() {
     const id = localStorage.getItem('id');
@@ -35,6 +36,8 @@ export class AdatlapComponent implements OnInit {
     this.base.addUserData(this.data).subscribe(
       (res) => {
         console.log("Adatok sikeresen felvéve: ", res);
+        this.router.navigate(['/profil'])
+
       },
       (error) => {
         console.error('Hibás adatbevitel: ', error);
