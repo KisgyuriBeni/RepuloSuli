@@ -1,0 +1,59 @@
+
+.carousel-item{
+    height: fit-content;
+}
+.welcome-header{
+    background-color: rgb(255,255,255,0.5)
+}
+.welcome-content{
+    border-radius: 10px;
+    background-color: rgb(255,255,255,0.5);
+}
+.welcome-text{
+    padding: 20px;
+}
+
+.aboutus-content{
+    border-radius: 10px;
+    padding:20px;
+    background-color: rgb(255,255,255,0.5);
+}
+.aboutus-text .text-card{
+    border-radius: 15px;
+    text-align: center;
+    border: none;
+    background-color: rgb(255,255,255,0.3)
+}
+.aboutus-text .image-card{
+    border: none;
+}
+/* .image-card img{
+    border-radius:5px;
+} */
+
+.fastcard-content{
+    border-radius: 10px;
+    padding: 20px;
+    background-color: rgb(255,255,255,0.5)
+}
+#fastcard{
+    border: none;
+    background-color: rgb(255,255,255,0.5)
+}
+#fastcard .card-header{
+    border: none;
+}
+#modalbutton{
+    border: none;
+}
+#authtag{
+    color: black;
+}
+
+.footer{
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+
+
+    

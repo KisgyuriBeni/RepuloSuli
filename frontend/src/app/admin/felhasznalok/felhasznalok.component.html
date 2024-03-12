@@ -1,0 +1,29 @@
+<div class="container">
+    <div class="card mt-5 p-4">
+        <h3>Felhasználók listája</h3>
+        <div class="card mt-2 p-2 mb-3">
+            <div class="row me-2">
+                <div *ngFor="let oszlop of oszlopok" class="col fw-bold">
+                    {{oszlop.text}}
+                </div>
+            </div>
+            <div class="row me-2" *ngFor="let user of users">
+                <div class="col" *ngFor="let oszlop of oszlopok">
+
+                    <ng-container *ngIf="oszlop.type=='plain'; else szerkeszt">
+                        {{user[oszlop.key]}}
+                    </ng-container>
+                    <ng-template #szerkeszt>
+                        <input [(ngModel)]="user[oszlop.key]" type="text" class="form-control">
+                    </ng-template> 
+                </div>
+            </div>
+        </div>
+        <div class="col-2">
+            <form class="d-flex" role="search">
+                <input class="form-control me-2" type="search" aria-label="Search">
+                <button class="btn btn-primary" type="submit">Keresés</button>
+              </form>
+          </div>
+    </div>
+</div>

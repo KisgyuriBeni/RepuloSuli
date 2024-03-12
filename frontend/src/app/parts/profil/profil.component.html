@@ -1,0 +1,76 @@
+<div class="container">
+    
+      <!-- profilon belüli nav -->      
+      <div class="offcanvas offcanvas-start justify-content-center"  data-bs-scroll="true" data-bs-backdrop="false" id="profilmenu">
+        <div class="offcanvas-header">
+          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <div class="offParagraph text-center mb-2">
+                <h5>
+                    Adatlap
+                </h5>
+                <button type="button" class="btn btn-light" routerLink="/adatlap">Szerkesztés</button>
+            </div>
+            <div class="offParagraph text-center mb-2">
+                <h5>
+                    Jelentkezések
+                </h5>
+                <button type="button" class="btn btn-light mb-1">Részletek</button>
+                <button type="button" class="btn btn-light">Lemondás</button>
+            </div>
+            <div class="offParagraph text-center">
+                <button type="button" class="btn btn-light mb-1" routerLink="/admin" *ngIf="isAdmin">Admin felület</button>
+                <button type="button" class="btn btn-light mb-1">Új jelszó</button>
+                <button type="button" class="btn btn-light" (click)="logout()">Kilépés</button>
+            </div>
+        </div>
+      </div>
+<!-- kkkkk -->
+
+<div class="card p-3 shadow mt-5 mb-3">
+    <div class="row">
+        <div class="col-auto me-auto" >
+            <h2 >Üdvözöljük a profilján!</h2>
+        </div>
+        <div class="col-auto">
+            <div class="p-2">
+                <button id="slidemenu" class="btn btn-light" type="button" data-bs-toggle="offcanvas" data-bs-target="#profilmenu" aria-controls="offcanvasExample">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5"/>
+                      </svg>
+                </button>
+            </div>
+        </div>
+      </div>
+</div>
+    <div class="row">
+        <div class="col-6">
+            <div class="card p-3 shadow" id="datacard">
+                <h3 class="p-3 text-center">Adatlap</h3>
+                <div class="card-body">
+                    <div *ngFor="let oszlop of oszlopok" class="row">
+                        <!-- {{user|json}} -->
+                        <div class="col mb-3 ">
+                            {{oszlop.text}}
+                        </div>
+                        <div class="col">
+                            {{user[oszlop.key]}}
+                        </div>
+                    </div>                       
+                </div>
+              </div>
+        </div>
+        <div class="col-6">
+            <div class="card p-3 shadow" id="datacard">
+                <h3 class="p-3 text-center">Jelentkezések</h3>
+                <div class="card-body">
+                    <div>
+                        <!-- adatbetöltés helye  -->
+                        {{user.courses|json}}
+                    </div>
+                </div>
+              </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,23 @@
+
+.nav{
+    background-color: rgb(255,255,255,0.5);
+    border: none;
+}
+.nav .nav-link{
+    color: black;
+}
+
+.nav-item.dropdown:hover .dropdown-menu {
+    display: block;
+}
+.dropdown-menu{
+    background-color:rgb(255,255,255,0.5);
+    border: none;
+    padding: 20px;
+    border-radius: 10px;
+}
+.dropdown-menu .dropdown-item{
+    border-radius: 15px;
+    color: black;
+    
+}

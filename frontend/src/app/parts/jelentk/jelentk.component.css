@@ -1,0 +1,23 @@
+.container{
+    min-height: 100vh;
+}
+.header{
+    background-color: rgb(255, 255, 255,0.5);
+}
+#qCard{
+    border: none;
+    background-color: rgb(255, 255, 255,0.5);
+}
+#courses{
+    border: none;
+    background-color: rgb(255, 255, 255,0.5);
+}
+#coursecard{
+    border: none;
+    border-top-right-radius: 20px ;
+    border-bottom-right-radius: 0px ;
+    background-color: rgb(255, 255, 255,0.5);
+}
+.modal-header{
+    border: none;
+}
