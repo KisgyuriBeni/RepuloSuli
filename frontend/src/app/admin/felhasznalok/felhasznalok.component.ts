@@ -8,7 +8,7 @@ import { BaseService } from 'src/app/services/base.service';
 })
 export class FelhasznalokComponent {
   users: any;
-
+  selectedUser:any={}
   oszlopok = [
     { key: "id", text: "Id", type: "plain" },
     { key: "user_name", text: "Felhasználónév", type: "text" },
@@ -26,7 +26,14 @@ export class FelhasznalokComponent {
       (res) => {
         this.users = res;
         console.log(res);
+        console.log(this.users[0]);
       }
     );
   }
+
+  showUserDetails(user: any) {
+    this.selectedUser = user
+    console.log(this.selectedUser);
+  }
+  
 }
