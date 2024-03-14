@@ -33,6 +33,7 @@ constructor(private auth:AuthService, private router:Router, private base:BaseSe
     this.base.getOneUser(id).subscribe(
       (res)=>{
         this.user = res
+        localStorage.setItem('admin', this.user.is_admin)
         this.isAdmin = this.user.is_admin === 1
         console.log(res)
       }
@@ -45,6 +46,7 @@ constructor(private auth:AuthService, private router:Router, private base:BaseSe
     console.log("Sikeresen kijelentkezett!")
     localStorage.removeItem('token')
     localStorage.removeItem('id')
+    localStorage.removeItem('admin')
     this.isLoggedin = false;
     this.router.navigate(['/fooldal'])
   }
