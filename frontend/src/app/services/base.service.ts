@@ -10,25 +10,24 @@ baseURL="http://localhost:8000/api/"
 
 constructor(private http:HttpClient, private auth:AuthService){}
 
+// admin
 getUsers(users:any){
   let token = localStorage.getItem('token')
   const headers = new HttpHeaders({'Authorization': `Bearer ${token}`})
   return this.http.get(this.baseURL+'users', {headers})
 }
-getAirplanes(target:any){
-  return this.http.get(this.baseURL+target)
+updateUsers(data:any){
+  let token = localStorage.getItem('token')
+  const headers = new HttpHeaders({'Authorization': `Bearer ${token}`})
+  return this.http.post(this.baseURL+'userupdate', data, {headers})
 }
-getCourses(target:any){
-  return this.http.get(this.baseURL+target)
-}
-
-updateOneUser(body:any){
-  return this.http.post(this.baseURL+'userupdate/'+body.id,body)
-}
-deleteOneUser(id:number){
-  return this.http.delete(this.baseURL+'userdelete/'+id)
+deleteUser(id: number): Observable<any> {
+  let token = localStorage.getItem('token');
+  const headers = new HttpHeaders({ 'Authorization': `Bearer ${token}` });
+  return this.http.delete(`${this.baseURL}userdelete`, { headers, body: { id } });
 }
 
+// profile
 getOneUser(id:any){
   let token = localStorage.getItem('token')
   const headers = new HttpHeaders({'Authorization': `Bearer ${token}`});

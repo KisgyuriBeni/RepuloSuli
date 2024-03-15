@@ -1,3 +1,4 @@
+import { Location } from '@angular/common';
 import { Component } from '@angular/core';
 import { BaseService } from 'src/app/services/base.service';
 
@@ -21,12 +22,11 @@ export class FelhasznalokComponent {
     { key: "birth_day", text: "Születési dátum", type: "text" }
   ];
 
-  constructor(private base: BaseService) {
+  constructor(private base: BaseService, private location:Location) {
     this.base.getUsers(this.users).subscribe(
       (res) => {
         this.users = res;
         console.log(res);
-        console.log(this.users[0]);
       }
     );
   }
@@ -34,6 +34,35 @@ export class FelhasznalokComponent {
   showUserDetails(user: any) {
     this.selectedUser = user
     console.log(this.selectedUser);
+  }
+
+  updateUser() {
+    if (this.selectedUser) {
+      this.base.updateUsers( this.selectedUser ).subscribe(
+        (res) => {
+          console.log('Felhasználó frissítve:', res);
+        }, 
+        (error) => {
+          console.error('Hiba történt a felhasználó frissítésekor:', error);
+        });
+    } else {
+      console.error('Nincs kiválasztott felhasználó vagy hiányzik az azonosító.');
+    }
+  }
+
+  deleteUser() {
+    if (this.selectedUser && this.selectedUser.id) {
+      this.base.deleteUser(this.selectedUser.id).subscribe(
+        (res) => {
+          console.log('Felhasználó törölve:', res)
+          this.users = this.users.filter((user: { id: any; }) => user.id !== this.selectedUser.id);
+        }, 
+        (err) => {
+          console.error('Hiba történt a felhasználó törlésekor:', err)
+        })
+    } else {
+      console.error('Nincs kiválasztott felhasználó vagy hiányzik az azonosító.')
+    }
   }
   
 }
