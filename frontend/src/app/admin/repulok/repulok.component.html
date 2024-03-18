@@ -1,5 +1,83 @@
 <div class="container">
     <div class="card mt-5 p-4">
-        
+        <div class="row mb-3">
+            <div class="col-auto me-auto">
+                <h1>Repülők</h1>
+            </div>
+            <div class="col-auto">
+                <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#createmodal">Felvétel</button>
+            </div>  
+        </div>  
+                <table class="table ">
+                    <thead>
+                        <tr>
+                            <th *ngFor="let oszlop of oszlopok">
+                                {{ oszlop.text }}
+                            </th>
+                            <th>
+                                Műveletek
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let airplane of airplanes">
+                            <td *ngFor="let oszlop of oszlopok">
+                                {{ airplane[oszlop.key] }}
+                            </td>
+                            <td>
+                                <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#modifymodal" >
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pen-fill" viewBox="0 0 16 16">
+                                        <path d="m13.498.795.149-.149a1.207 1.207 0 1 1 1.707 1.708l-.149.148a1.5 1.5 0 0 1-.059 2.059L4.854 14.854a.5.5 0 0 1-.233.131l-4 1a.5.5 0 0 1-.606-.606l1-4a.5.5 0 0 1 .131-.232l9.642-9.642a.5.5 0 0 0-.642.056L6.854 4.854a.5.5 0 1 1-.708-.708L9.44.854A1.5 1.5 0 0 1 11.5.796a1.5 1.5 0 0 1 1.998-.001"/>
+                                    </svg>
+                                </button>  
+                            </td> 
+                        </tr>
+                    </tbody>
+                </table>  
+    </div>
+</div>
+
+<div class="modal fade" id="modifymodal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header justify-content-center">
+          <h4 id="exampleModalLabel">Repülők módosítása</h4>
+        </div>
+
+        <div class="modal-body">
+            <div class="mb-3">
+                <label for="user_name" class="form-label">Megnevezés</label>
+                <input  type="text" class="form-control">
+            </div>
+            <div class="mb-3">
+                <label for="user_name" class="form-label">Meghajtás</label>
+                <input type="email" class="form-control">
+            </div>
+        </div>
+        <div class="modal-footer justify-content-center">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Bezár</button>
+          <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Mentés</button>
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Törlés</button>
+        </div>
+      </div>
+    </div>
+</div>
+
+<div class="modal fade" id="createmodal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content p-3">
+            <div class="mb-3">
+                <label for="name" class="form-label">Megnevezés</label>
+                <input type="text" class="form-control" id="name" [(ngModel)]="newAirplane.airplane_name">
+            </div>
+            <div class="mb-3">
+                <label for="propulsion" class="form-label">Meghajtás</label>
+                <input type="text" class="form-control" id="propulsion" [(ngModel)]="newAirplane.propulsion">
+            </div>
+        <div class="p-2">
+          <button type="button" class="btn btn-primary me-2" data-bs-dismiss="modal" (click)="createAirplane()">Hozzáad</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Bezár</button>
+        </div>
+      </div>
     </div>
 </div>

@@ -38,6 +38,19 @@ createCourse(data:any){
   const headers = new HttpHeaders({'Authorization': `Bearer ${token}`})
   return this.http.post(this.baseURL+'coursecreate', data, {headers})
 }
+// admincoureses
+getairplanes(data:any){
+  return this.http.get(this.baseURL+'airplanes', data)
+}
+getoneairplane(id:any){
+  return this.http.get(this.baseURL+'oneairplane/'+id)
+}
+createAirplane(data:any){
+  let token = localStorage.getItem('token')
+  const headers = new HttpHeaders({'Authorization': `Bearer ${token}`})
+  return this.http.post(this.baseURL+'airplanecreate', data, {headers})
+}
+
 
 // profile
 getOneUser(id:any){

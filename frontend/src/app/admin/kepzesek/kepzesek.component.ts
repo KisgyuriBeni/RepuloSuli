@@ -11,6 +11,7 @@ courses:any
 oneCourse:any={}
 newCourse: any = {}
 
+
 oszlopok = [
   { key: "id", text: "Id", type: "plain" },
   { key: "course_name", text: "Képzés", type: "text" },
@@ -41,6 +42,7 @@ getOneCourse(course:any){
     }
   )
 }
+
 createCourses(){
  this.base.createCourse(this.newCourse).subscribe(
   (res)=>{
