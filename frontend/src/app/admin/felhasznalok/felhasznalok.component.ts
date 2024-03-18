@@ -1,4 +1,3 @@
-import { Location } from '@angular/common';
 import { Component } from '@angular/core';
 import { BaseService } from 'src/app/services/base.service';
 
@@ -22,7 +21,7 @@ export class FelhasznalokComponent {
     { key: "birth_day", text: "Születési dátum", type: "text" }
   ];
 
-  constructor(private base: BaseService, private location:Location) {
+  constructor(private base: BaseService) {
     this.base.getUsers(this.users).subscribe(
       (res) => {
         this.users = res;

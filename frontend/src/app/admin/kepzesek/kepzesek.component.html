@@ -1,5 +1,55 @@
 <div class="container">
     <div class="card mt-5 p-4">
-        
+        <h1 class="p-2"> Képzések </h1>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th *ngFor="let oszlop of oszlopok">
+                        {{ oszlop.text }}
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let course of courses">
+                    <td *ngFor="let oszlop of oszlopok">
+                        {{ course[oszlop.key] }}
+                    </td>
+                </tr>
+            </tbody>
+        </table>  
+        <div class="p-2">
+            <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#createmodal">Új képzés felvétele</button>
+        </div>
     </div>
+    <div class="modal fade" id="createmodal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content p-3">
+
+            <div class="mb-3">
+                <label for="name" class="form-label">Megnevezés</label>
+                <input type="text" class="form-control" id="name" [(ngModel)]="newCourse.course_name">
+            </div>
+            <div class="mb-3">
+                <label for="airplane" class="form-label">Repülő</label>
+                <input type="text" class="form-control" id="airplane"  [(ngModel)]="newCourse.airplane_id">
+            </div>
+            <div class="mb-3">
+                <label for="instructor" class="form-label">Időtartam</label>
+                <input type="text" class="form-control" id="instructor"  [(ngModel)]="newCourse.duration">
+            </div>
+            <div class="mb-3">
+                <label for="instructor" class="form-label">Oktató</label>
+                <input type="text" class="form-control" id="instructor"  [(ngModel)]="newCourse.instructor">
+            </div>
+            <div class="mb-3">
+                <label for="fee" class="form-label">Díj</label>
+                <input type="text" class="form-control" id="fee"  [(ngModel)]="newCourse.course_fee">
+            </div>
+
+            <div class="p-2">
+              <button type="button" class="btn btn-primary me-2" data-bs-dismiss="modal" (click)="createCourses()">Felvétel</button>
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Bezár</button>
+            </div>
+          </div>
+        </div>
 </div>

@@ -30,7 +30,6 @@ Route::group(["middleware" => ["auth:sanctum"]], function() {
     Route::post("/userupdate", [UserController::class, "updateUser"]);
     Route::post("/attach", [UserController::class, "attach"]);
     Route::post("/detach", [UserController::class, "detach"]);
-    Route::post("/modifypassword", [AuthController::class, "modifyPassword"]);
     Route::delete("/userdelete", [UserController::class, "deleteUser"]);
 
 });
@@ -51,7 +50,7 @@ Route::post("/airplanecreate", [AirplaneController::class, "createAirplane"]);
 Route::post("/register", [AuthController::class, "register"])->middleware("throttle:100, 43200");
 Route::post("/login", [AuthController::class, "login"])->middleware("throttle:100, 43200");
 
-Route::get("courses", [CourseController::class, "getCourses"]);
+Route::get("/courses", [CourseController::class, "getCourses"]);
 Route::get("/onecourse/{id}",[CourseController::class,"getCourseById"]);
 
 Route::get("/airplanes", [AirplaneController::class, "getAirplanes"]);

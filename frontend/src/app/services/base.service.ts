@@ -22,20 +22,32 @@ updateUsers(data:any){
   return this.http.post(this.baseURL+'userupdate', data, {headers})
 }
 deleteUser(id: number): Observable<any> {
-  let token = localStorage.getItem('token');
-  const headers = new HttpHeaders({ 'Authorization': `Bearer ${token}` });
-  return this.http.delete(`${this.baseURL}userdelete`, { headers, body: { id } });
+  let token = localStorage.getItem('token')
+  const headers = new HttpHeaders({ 'Authorization': `Bearer ${token}` })
+  return this.http.delete(`${this.baseURL}userdelete`, { headers, body: { id } })
+}
+// admincourses
+getCourses(data:any){
+  return this.http.get(this.baseURL+'courses', data)
+}
+getOneCourse(id:any){
+  return this.http.get(this.baseURL+'onecourse/'+id)
+}
+createCourse(data:any){
+  let token = localStorage.getItem('token')
+  const headers = new HttpHeaders({'Authorization': `Bearer ${token}`})
+  return this.http.post(this.baseURL+'coursecreate', data, {headers})
 }
 
 // profile
 getOneUser(id:any){
   let token = localStorage.getItem('token')
-  const headers = new HttpHeaders({'Authorization': `Bearer ${token}`});
+  const headers = new HttpHeaders({'Authorization': `Bearer ${token}`})
   return this.http.get(this.baseURL+'oneuser/'+id, {headers})
 }
 addUserData(data:any){
   let token = localStorage.getItem('token')
-  const headers = new HttpHeaders({'Authorization': `Bearer ${token}`});
+  const headers = new HttpHeaders({'Authorization': `Bearer ${token}`})
  return this.http.post(this.baseURL+'userupdate' , data, {headers})
 }
 

@@ -12,8 +12,7 @@ class Course extends Model {
     protected $fillable=[
         "airplane_id",
         "instructor",
-        "start_date",
-        "end_date",
+        "duration",
         "course_fee"
     ];
 
