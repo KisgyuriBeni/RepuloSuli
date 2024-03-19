@@ -1,10 +1,6 @@
-import { Token } from '@angular/compiler';
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
-import { BaseService } from 'src/app/services/base.service';
-
-
 
 @Component({
   selector: 'app-bejel',
@@ -16,7 +12,7 @@ user:any={ email:'', password:'' }
 isSpinning:boolean = false
 isLoggedin:boolean=false
 
-constructor(private auth:AuthService, private router:Router, private base:BaseService){}
+constructor(private auth:AuthService, private router:Router){}
 
 login(){
   this.isSpinning = true;

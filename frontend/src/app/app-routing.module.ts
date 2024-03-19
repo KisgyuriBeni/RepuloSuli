@@ -52,15 +52,18 @@ const routes: Routes = [
   },
   {
     path: 'adminrep', 
-    component:RepulokComponent
+    component:RepulokComponent,
+    canActivate: [authGuard]
   },
   {
     path: 'adminfelh', 
-    component:FelhasznalokComponent
+    component:FelhasznalokComponent,
+    canActivate: [authGuard]
   },
   {
     path: 'adminkepzsk', 
-    component:KepzesekComponent
+    component:KepzesekComponent,
+    canActivate: [authGuard]
   },
   {path: ' ', component:FooldalComponent},
   {path: '**', component:FooldalComponent},

@@ -50,6 +50,16 @@ createAirplane(data:any){
   const headers = new HttpHeaders({'Authorization': `Bearer ${token}`})
   return this.http.post(this.baseURL+'airplanecreate', data, {headers})
 }
+updateAirplane(data:any){
+  let token = localStorage.getItem('token')
+  const headers = new HttpHeaders({'Authorization': `Bearer ${token}`})
+  return this.http.post(this.baseURL+'airplaneupdate', data, {headers})
+}
+deleteAirplane(id: number): Observable<any> {
+  let token = localStorage.getItem('token')
+  const headers = new HttpHeaders({ 'Authorization': `Bearer ${token}` })
+  return this.http.delete(`${this.baseURL}airplanedelete`, { headers, body: { id } })
+}
 
 
 // profile
