@@ -46,7 +46,7 @@ createAirplane(){
     }
   )
 }
-updateUser() {
+updateAirplane() {
   if (this.selectedAirplane) {
     this.base.updateAirplane( this.selectedAirplane ).subscribe(
       (res) => {
@@ -60,7 +60,7 @@ updateUser() {
   }
 }
 
-deleteUser() {
+deleteAirplane() {
   if (this.selectedAirplane && this.selectedAirplane.id) {
     this.base.deleteAirplane(this.selectedAirplane.id).subscribe(
       (res) => {

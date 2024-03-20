@@ -12,6 +12,7 @@ import { NgLocaleLocalization } from '@angular/common';
 })
 export class ProfilComponent {
 user:any
+course:any
 oszlopok=[
   {key:"user_name", text:"Felhasználó név"},
   {key:"email", text:"Email cím"},
@@ -39,6 +40,7 @@ constructor(private auth:AuthService, private router:Router, private base:BaseSe
       }
     )
   }
+  
  
   logout() {
     let token=localStorage.getItem('token');

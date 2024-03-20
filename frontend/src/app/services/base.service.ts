@@ -10,6 +10,7 @@ baseURL="http://localhost:8000/api/"
 
 constructor(private http:HttpClient, private auth:AuthService){}
 
+
 // admin
 getUsers(users:any){
   let token = localStorage.getItem('token')
@@ -26,6 +27,7 @@ deleteUser(id: number): Observable<any> {
   const headers = new HttpHeaders({ 'Authorization': `Bearer ${token}` })
   return this.http.delete(`${this.baseURL}userdelete`, { headers, body: { id } })
 }
+
 // admincourses
 getCourses(data:any){
   return this.http.get(this.baseURL+'courses', data)
@@ -38,6 +40,17 @@ createCourse(data:any){
   const headers = new HttpHeaders({'Authorization': `Bearer ${token}`})
   return this.http.post(this.baseURL+'coursecreate', data, {headers})
 }
+updateCourse(data:any){
+  let token = localStorage.getItem('token')
+  const headers = new HttpHeaders({ 'Authorization': `Bearer ${token}` })
+  return this.http.post(this.baseURL+'courseupdate', data, {headers})
+}
+deleteCourse(id:any){
+  let token = localStorage.getItem('token')
+  const headers = new HttpHeaders({ 'Authorization': `Bearer ${token}` })
+  return this.http.delete(this.baseURL+'coursedelete', {headers, body:{id}})
+}
+
 // admincoureses
 getairplanes(data:any){
   return this.http.get(this.baseURL+'airplanes', data)
@@ -61,7 +74,6 @@ deleteAirplane(id: number): Observable<any> {
   return this.http.delete(`${this.baseURL}airplanedelete`, { headers, body: { id } })
 }
 
-
 // profile
 getOneUser(id:any){
   let token = localStorage.getItem('token')
@@ -72,6 +84,18 @@ addUserData(data:any){
   let token = localStorage.getItem('token')
   const headers = new HttpHeaders({'Authorization': `Bearer ${token}`})
  return this.http.post(this.baseURL+'userupdate' , data, {headers})
+}
+attachToCourse(user_id:any, course_id:any){
+  let token = localStorage.getItem('token')
+  const headers = new HttpHeaders({'Authorization': `Bearer ${token}`})
+  this.http.post(this.baseURL+'attach', { user_id, course_id }, { headers} ).subscribe(
+    response => {
+      console.log(response)
+    },
+    error => {
+      console.error(error)
+    }
+  )
 }
 
   

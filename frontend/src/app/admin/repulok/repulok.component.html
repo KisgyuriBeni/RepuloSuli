@@ -2,10 +2,11 @@
     <div class="card mt-5 p-4">
         <div class="row mb-3">
             <div class="col-auto me-auto">
-                <h1>Repülők</h1>
+                <h1>Repülők listája</h1>
             </div>
             <div class="col-auto">
-                <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#createmodal">Felvétel</button>
+                <button type="button" class="btn btn-warning me-2" data-bs-toggle="modal" data-bs-target="#createmodal">Felvétel</button>
+                <button type="button" class="btn btn-secondary" routerLink="/admin" >Vissza</button>
             </div>  
         </div>  
                 <table class="table ">
@@ -56,8 +57,8 @@
         </div>
         <div class="modal-footer justify-content-center">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Bezár</button>
-          <button type="button" class="btn btn-warning" data-bs-dismiss="modal" (click)="updateUser()">Mentés</button>
-          <button type="button" class="btn btn-danger" data-bs-dismiss="modal" (click)="deleteUser()">Törlés</button>
+          <button type="button" class="btn btn-warning" data-bs-dismiss="modal" (click)="updateAirplane()">Mentés</button>
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal" (click)="deleteAirplane()">Törlés</button>
         </div>
       </div>
     </div>

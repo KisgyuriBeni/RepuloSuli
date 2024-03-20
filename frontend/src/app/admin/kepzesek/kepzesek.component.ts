@@ -7,8 +7,9 @@ import { BaseService } from 'src/app/services/base.service';
   styleUrls: ['./kepzesek.component.css']
 })
 export class KepzesekComponent implements OnInit{
-courses:any
+courses:any={}
 newCoruse:any={}
+selectedCourse:any={}
 airplanes:any
 
 oszlopok = [
@@ -51,10 +52,10 @@ createCoruses(){
 getAirplaneNameById(airplaneId: number): string {
   if (!this.airplanes || this.airplanes.length === 0) {
     console.error("Repülőgép adatok nincsenek betöltve vagy üres tömb.");
-    return '';
+    return ''
   }
   const selectedAirplane = this.airplanes.find((plane: any) => plane.id === airplaneId);
-  return selectedAirplane ? selectedAirplane.airplane_name : '';
+  return selectedAirplane ? selectedAirplane.airplane_name : ''
 }
 
 getairplanes(){
@@ -64,6 +65,35 @@ getairplanes(){
       console.log(this.airplanes)
     }
   )
+}
+
+showCoursesDetails(course: any) {
+  this.selectedCourse = course
+  console.log(this.selectedCourse);
+}
+updateCourse(){
+  this.base.updateCourse(this.selectedCourse).subscribe(
+    (res)=>
+    {
+      console.log("Sikeres frissítés!",res),
+      this.getCourses()
+    },
+    (error)=>console.error("Hiba lépett fel a frissítés során!",error)
+  )
+}
+deleteCourse(){
+  if (this.selectedCourse && this.selectedCourse.id) {
+    this.base.deleteCourse(this.selectedCourse.id).subscribe(
+      (res) => {
+        console.log('Képzés törölve:', res)
+        this.courses = this.courses.filter((course: { id: any; }) => course.id !== this.selectedCourse.id);
+      }, 
+      (err) => {
+        console.error('Hiba történt a képzés törlésekor:', err)
+      })
+  } else {
+    console.error('Nincs kiválasztott képzés vagy hiányzik az azonosító.')
+  }
 }
 }
 
