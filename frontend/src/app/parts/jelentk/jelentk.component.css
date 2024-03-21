@@ -1,23 +1,31 @@
-.container{ 
-    min-height: 100vh;
+.container{
+    height: 70vh;
 }
-.header{
-    background-color: rgb(255, 255, 255,0.5);
+.card {
+    background-color: rgba(255, 255, 255, 0.6);
+    border-radius: 10px;
+    transition: transform 0.3s ease;
 }
-#coursescard{
-    border: none;
-    background-color: rgb(255, 255, 255,0.5);
+
+.card:hover {
+    transform: translateY(-5px); 
 }
-#maincard{
-    border: none;
-    background-color: rgb(255, 255, 255,0.5);
+
+.card h4 {
+    font-weight: 500;
+    font-size: 20px;
+    color: #333; 
 }
-#coursecard{
-    border: none;
-    border-top-right-radius: 20px ;
-    border-bottom-right-radius: 0px ;
-    background-color: rgb(255, 255, 255,0.5);
+.card p {
+    font-size: 16px; 
+    color: #555; 
+    margin-bottom: 10px; 
 }
-.modal-header{
-    border: none;
+
+.btn {
+    margin-top: 50px;
+    font-weight: 500;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease;
 }
+

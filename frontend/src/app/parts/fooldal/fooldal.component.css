@@ -3,7 +3,7 @@
     height: fit-content;
 }
 .welcome-header{
-    background-color: rgb(255,255,255,0)
+    background-color: rgb(255,255,255,0.1)
 }
 .welcome-content{
     border-radius: 10px;
@@ -12,9 +12,13 @@
 .welcome-text{
     padding: 20px;
 }
-.carousel-inner{
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
+h1{
+    font-weight: 700;
+    font-style: normal;
+}
+h2{
+    font-weight: 600;
+    font-style: normal;
 }
 .aboutus-content{
     border-radius: 10px;
