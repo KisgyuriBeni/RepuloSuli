@@ -85,17 +85,10 @@ addUserData(data:any){
   const headers = new HttpHeaders({'Authorization': `Bearer ${token}`})
  return this.http.post(this.baseURL+'userupdate' , data, {headers})
 }
-attachToCourse(user_id:any, course_id:any){
+attach(user_id:any, course_id:any){
   let token = localStorage.getItem('token')
   const headers = new HttpHeaders({'Authorization': `Bearer ${token}`})
-  this.http.post(this.baseURL+'attach', { user_id, course_id }, { headers} ).subscribe(
-    response => {
-      console.log(response)
-    },
-    error => {
-      console.error(error)
-    }
-  )
+  return this.http.post(this.baseURL+'attach', {user_id,course_id}, {headers})
 }
 
   

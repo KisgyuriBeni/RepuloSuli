@@ -28,49 +28,66 @@
       </div>
 <!-- kkkkk -->
 
-<div class="card p-3 shadow mt-5 mb-3">
-    <div class="row">
-        <div class="col-auto me-auto" >
-            <h2 >Üdvözöljük a profilján!</h2>
-        </div>
-        <div class="col-auto">
-            <div class="p-2">
-                <button id="slidemenu" class="btn btn-light" type="button" data-bs-toggle="offcanvas" data-bs-target="#profilmenu" aria-controls="offcanvasExample">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
-                        <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5"/>
-                      </svg>
-                </button>
+    <div class="card p-3 shadow mt-5 mb-3">
+        <div class="row">
+            <div class="col-auto me-auto" >
+                <h2 >Üdvözöljük a profilján!</h2>
             </div>
-        </div>
-      </div>
-</div>
+            <div class="col-auto">
+                <div class="p-2">
+                    <button id="slidemenu" class="btn btn-light" type="button" data-bs-toggle="offcanvas" data-bs-target="#profilmenu" aria-controls="offcanvasExample">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5"/>
+                          </svg>
+                    </button>
+                </div>
+            </div>
+          </div>
+    </div>
     <div class="row">
         <div class="col-6">
             <div class="card p-3 shadow" id="datacard">
                 <h3 class="p-3 text-center">Adatlap</h3>
                 <div class="card-body">
                     <div *ngFor="let oszlop of oszlopok" class="row">
-                        <!-- {{user|json}} -->
                         <div class="col mb-3 ">
-                            {{oszlop.text}}
+                            {{ oszlop.text }}
                         </div>
                         <div class="col">
-                            {{user[oszlop.key]}}
+                            {{ user[oszlop.key] }}
                         </div>
-                    </div>                       
+                    </div>                   
                 </div>
               </div>
         </div>
         <div class="col-6">
             <div class="card p-3 shadow" id="datacard">
                 <h3 class="p-3 text-center">Jelentkezések</h3>
-                <div class="card-body">
-                    <div>
-                        <!-- adatbetöltés helye  -->
-                        {{user.courses|json}}
+                <ng-container *ngIf="userCourses.length > 0; else noCourses">
+                    <table>
+                      <thead>
+                        <tr>
+                          <th>Tanfolyam neve</th>
+                          <th>Időtartam</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr *ngFor="let course of userCourses">
+                          <td>{{ course.course_name }}</td>
+                          <td>{{ course.duration }}</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </ng-container>
+                  
+                  <ng-template #noCourses>
+                    <div class="card">
+                      <div class="card-body">
+                        Még nincs leadva jelentkezés.
+                      </div>
                     </div>
-                </div>
-              </div>
+                  </ng-template>
+            </div>
         </div>
     </div>
 </div>
