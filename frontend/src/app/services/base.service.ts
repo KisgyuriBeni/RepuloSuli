@@ -91,7 +91,9 @@ attach(user_id:any, course_id:any){
   return this.http.post(this.baseURL+'attach', {user_id,course_id}, {headers})
 }
 detach(user_id:any, course_id:any){
-  return this.http.post(this.baseURL+'detach', {user_id, course_id})
+  let token = localStorage.getItem('token')
+  const headers = new HttpHeaders({'Authorization': `Bearer ${token}`})
+  return this.http.post(this.baseURL+'detach', {user_id, course_id}, {headers})
 }
 
   

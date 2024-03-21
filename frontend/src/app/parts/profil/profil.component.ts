@@ -11,6 +11,7 @@ import { BaseService } from 'src/app/services/base.service';
 export class ProfilComponent implements OnInit {
   user: any = {};
   userCourses: any = [];
+  selectedUserCourse:any={}
   airplanes:any
 
   isAdmin: boolean = false;
@@ -93,10 +94,20 @@ export class ProfilComponent implements OnInit {
       }
     );
   }
-  dropCourse(){
-    this.base.detach(this.user.id, this.userCourses.id).subscribe(
-      (res)=>console.log(res),
-      (err)=>console.error(err)
-    )
+  dropCourse(courseId:any){
+    this.base.detach(this.user.id, courseId).subscribe(
+      (res)=>{
+        console.log(res),
+        this.getOneUserById();
+      },
+      (err)=>{
+        console.error(err);
+      }
+    );
+  }
+  chooseOneCourse(course: any) {
+    this.selectedUserCourse = course
+    console.log(this.selectedUserCourse);
+    this.dropCourse(course.id)
   }
 }

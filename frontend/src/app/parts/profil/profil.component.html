@@ -42,13 +42,22 @@
               <tbody>
                 <tr *ngFor="let course of userCourses"> 
                   <td *ngFor="let column of courses">
+
                     <ng-container *ngIf="column.key !== 'airplane_id'; else airplaneName">
                       {{course[column.key]}}
                     </ng-container>
                     <ng-template #airplaneName>
                       {{getAirplaneNameById(course.airplane_id)}}
                     </ng-template>
+
                   </td>
+                  <td>
+                    <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#modifymodal" (click)="chooseOneCourse(course); $event.stopPropagation()">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
+                        <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5M8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5m3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0"/>
+                      </svg>
+                    </button>
+                  </td> 
                 </tr>
               </tbody>
             </table>
@@ -93,11 +102,12 @@
         <div class="col-6">
             <div class="card p-3 shadow" id="datacard">
                 <h3 class="p-3 text-center">Jelentkezések</h3>
+
                 <ng-container *ngIf="userCourses.length > 0; else noCourses">
                     <table>
                       <thead>
                         <tr>
-                          <th>Tanfolyam neve</th>
+                          <th>Megnevezés</th>
                           <th>Időtartam</th>
                         </tr>
                       </thead>
@@ -109,7 +119,7 @@
                       </tbody>
                     </table>
                   </ng-container>
-                  
+
                   <ng-template #noCourses>
                     <div class="card">
                       <div class="card-body">
@@ -117,6 +127,7 @@
                       </div>
                     </div>
                   </ng-template>
+                  
             </div>
         </div>
     </div>

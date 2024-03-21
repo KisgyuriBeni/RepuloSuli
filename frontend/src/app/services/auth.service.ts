@@ -15,15 +15,7 @@ authURL = "http://localhost:8000/api/"
 constructor(private http:HttpClient, private router:Router){}
 
 register(user:any){
-  this.http.post(this.authURL + 'register', user,).subscribe({
-    next:(res)=>{
-      console.log("Küldés sikeres!", res),
-      this.router.navigate(['/bejel'])
-    },
-    error:(err)=>{
-      console.error("Regisztráció sikeretelen! Próbálja újra",err)
-    }
-  })
+ return this.http.post(this.authURL+'register', user)
 }
 
 login(user: any): Observable<any> {
