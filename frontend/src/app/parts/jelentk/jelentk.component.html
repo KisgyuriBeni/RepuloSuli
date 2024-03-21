@@ -3,8 +3,8 @@
 </div>
 <div class="container">
     <!-- {{courses|json}} -->
-    <div class="card p-5">
-        <div class="card p-4 mb-3" *ngFor="let course of courses">
+    <div class="card p-5 mt-5" id="maincard"> 
+        <div class="card p-4 mb-3" id="coursescard" *ngFor="let course of courses">
             <h4>{{course.course_name}}</h4>
             <div class="d-grid gap-2 d-md-block">
                 <button type="button" class="btn btn-primary me-2" (click)="sendApplication(course)">Jelentkezés</button>

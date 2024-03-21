@@ -30,9 +30,6 @@ login(){
     (err) => {
       
       console.error("Bejelentkezési hiba!", err)
-      setTimeout(() => {
-        this.isSpinning = false
-      }, 500)
     }
   );
 }

@@ -1,14 +1,14 @@
-.container{
+.container{ 
     min-height: 100vh;
 }
 .header{
     background-color: rgb(255, 255, 255,0.5);
 }
-#qCard{
+#coursescard{
     border: none;
     background-color: rgb(255, 255, 255,0.5);
 }
-#courses{
+#maincard{
     border: none;
     background-color: rgb(255, 255, 255,0.5);
 }
