@@ -71,6 +71,7 @@ showCoursesDetails(course: any) {
   this.selectedCourse = course
   console.log(this.selectedCourse);
 }
+
 updateCourse(){
   this.base.updateCourse(this.selectedCourse).subscribe(
     (res)=>

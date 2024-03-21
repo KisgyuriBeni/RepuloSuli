@@ -16,8 +16,7 @@
                 <h5>
                     Jelentkezések
                 </h5>
-                <button type="button" class="btn btn-light mb-1">Részletek</button>
-                <button type="button" class="btn btn-light">Lemondás</button>
+                <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#courseDetails">Részletek</button>
             </div>
             <div class="offParagraph text-center">
                 <button type="button" class="btn btn-light mb-1" routerLink="/admin" *ngIf="isAdmin">Admin felület</button>
@@ -27,6 +26,37 @@
         </div>
       </div>
 <!-- kkkkk -->
+      <!-- modalCourses -->
+      <div class="modal fade" id="courseDetails" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content p-5">
+
+            <table class="table" class="table" *ngIf="userCourses && userCourses.length > 0">
+              <thead>
+                <tr>
+                  <th *ngFor="let column of courses">
+                    {{ column.text }}
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let course of userCourses"> 
+                  <td *ngFor="let column of courses">
+                    <ng-container *ngIf="column.key !== 'airplane_id'; else airplaneName">
+                      {{course[column.key]}}
+                    </ng-container>
+                    <ng-template #airplaneName>
+                      {{getAirplaneNameById(course.airplane_id)}}
+                    </ng-template>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+
+          </div>
+        </div>
+      </div>
+      <!-- modalCoursesEND -->
 
     <div class="card p-3 shadow mt-5 mb-3">
         <div class="row">
