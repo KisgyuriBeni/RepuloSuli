@@ -6,7 +6,6 @@ import { FooldalComponent } from './parts/fooldal/fooldal.component';
 import { ElfjelComponent } from './parts/elfjel/elfjel.component';
 import { ProfilComponent } from './parts/profil/profil.component';
 import { VerifyComponent } from './parts/verify/verify.component';
-import { GaleriaComponent } from './parts/galeria/galeria.component';
 import { AdatlapComponent } from './parts/adatlap/adatlap.component';
 import { JelentkComponent } from './parts/jelentk/jelentk.component';
 import { TajekoztatoComponent } from './parts/tajekoztato/tajekoztato.component';
@@ -18,14 +17,7 @@ import { authGuard } from './guards/auth.guard';
 import { TokenGuard } from './guards/token.guard';
 
 const routes: Routes = [
-
-// galeria torolve lesz
-{
-  path: 'galeria', 
-  component:GaleriaComponent
-},
-// --------
-
+  {path:'verify', component:VerifyComponent},
   {path: 'bejel',component:BejelComponent},
   {path: 'fooldal', component:FooldalComponent},
   {path: 'elfelejtett', component:ElfjelComponent},

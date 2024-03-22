@@ -13,7 +13,6 @@ import { FooldalComponent } from './parts/fooldal/fooldal.component';
 import { ProfilComponent } from './parts/profil/profil.component';
 import { ElfjelComponent } from './parts/elfjel/elfjel.component';
 import { VerifyComponent } from './parts/verify/verify.component';
-import { GaleriaComponent } from './parts/galeria/galeria.component';
 import { AdatlapComponent } from './parts/adatlap/adatlap.component';
 import { JelentkComponent } from './parts/jelentk/jelentk.component';
 import { TajekoztatoComponent } from './parts/tajekoztato/tajekoztato.component';
@@ -34,7 +33,6 @@ import { KepzesekComponent } from './admin/kepzesek/kepzesek.component';
     ProfilComponent,
     ElfjelComponent,
     VerifyComponent,
-    GaleriaComponent,
     AdatlapComponent,
     JelentkComponent,
     TajekoztatoComponent,

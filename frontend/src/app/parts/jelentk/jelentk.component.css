@@ -9,7 +9,14 @@
     border-radius: 10px;
     transition: transform 0.3s ease;
 }
-
+#h1header{
+    margin-left: 30px;
+    padding: 20px;
+}
+#h2header{
+    margin-left: 60px;
+    margin-top: 15px;
+}
 .card:hover {
     transform: translateY(-5px); 
 }
@@ -26,7 +33,6 @@
 }
 
 .btn {
-    margin-top: 50px;
     font-weight: 500;
     text-transform: uppercase;
     transition: background-color 0.3s ease;

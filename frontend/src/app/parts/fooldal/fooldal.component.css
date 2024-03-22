@@ -3,6 +3,7 @@
     height: fit-content;
 }
 .welcome-header{
+    
     background-color: rgb(255,255,255,0.1)
 }
 .welcome-content{
@@ -13,11 +14,18 @@
     padding: 20px;
 }
 h1{
-    font-weight: 700;
+    margin-left: 40px;
+    font-size: 80px;
+    font-weight: 600;
     font-style: normal;
 }
-h2{
+#h2header{
+    margin-left: 40px;
     font-weight: 600;
+    font-style: normal;
+}
+p{
+    font-size: medium;
     font-style: normal;
 }
 .aboutus-content{

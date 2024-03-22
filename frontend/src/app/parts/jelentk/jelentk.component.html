@@ -1,10 +1,10 @@
 <div class="header p-3">
-    <h1>Várja önt is a repülés szabadsága!</h1>
-    <h2>Fedezzen fel tanfolyamjainkat és kerüljön egy lépéssel közelebb az éghez.</h2>
+    <h1 id="h1header">Várja önt is a repülés szabadsága!</h1>
+    <h3 id="h2header">Fedezzen fel tanfolyamjainkat és kerüljön egy lépéssel közelebb az éghez.</h3>
 </div> 
 <div class="container"> 
     <div class="row mt-5">
-        <div class="col-md-4" *ngFor="let course of courses">
+        <div class="col-md-4 col-sm-12 mb-2" *ngFor="let course of courses">
             <div class="card p-4 mb-3" id="coursescard">
                 <h4>{{course.course_name}}</h4>
                 <p>Ár: {{course.course_fee}} <span>€</span></p> <!-- Új sor az ár megjelenítésére -->
