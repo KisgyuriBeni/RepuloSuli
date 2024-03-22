@@ -9,13 +9,17 @@
     border-radius: 10px;
     transition: transform 0.3s ease;
 }
-#h1header{
-    margin-left: 30px;
-    padding: 20px;
-}
 #h2header{
-    margin-left: 60px;
-    margin-top: 15px;
+    margin-top: 10px;
+    margin-left: 40px;
+    font-weight: 400;
+    font-size: 30px;
+}
+#h1header{
+    margin-left: 25px;
+    padding: 15px;
+    font-weight: bold;
+    font-size: 50px;
 }
 .card:hover {
     transform: translateY(-5px); 

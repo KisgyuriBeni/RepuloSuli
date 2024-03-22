@@ -3,7 +3,6 @@
     height: fit-content;
 }
 .welcome-header{
-    
     background-color: rgb(255,255,255,0.1)
 }
 .welcome-content{
@@ -15,7 +14,7 @@
 }
 h1{
     margin-left: 40px;
-    font-size: 80px;
+    font-size: 70px;
     font-weight: 600;
     font-style: normal;
 }
