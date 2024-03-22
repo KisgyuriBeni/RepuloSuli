@@ -15,58 +15,66 @@ import { RepulokComponent } from './admin/repulok/repulok.component';
 import { FelhasznalokComponent } from './admin/felhasznalok/felhasznalok.component';
 import { KepzesekComponent } from './admin/kepzesek/kepzesek.component';
 import { authGuard } from './guards/auth.guard';
+import { TokenGuard } from './guards/token.guard';
 
 const routes: Routes = [
-  {
-    path: 'bejel',
-    component:BejelComponent
-  },
-  {path: 'verify', component:VerifyComponent},
-  {
-    path: 'galeria', 
-    component:GaleriaComponent
-  },
+
+// galeria torolve lesz
+{
+  path: 'galeria', 
+  component:GaleriaComponent
+},
+// --------
+
+  {path: 'bejel',component:BejelComponent},
+  {path: 'fooldal', component:FooldalComponent},
   {path: 'elfelejtett', component:ElfjelComponent},
   {path: 'regist', component:RegistComponent},
-  {
-    path: 'profil', 
-    component:ProfilComponent
-  },
-  {path: 'fooldal', component:FooldalComponent},
-  {
-    path: 'adatlap', 
-    component:AdatlapComponent
+{
+  path: 'profil', 
+  component:ProfilComponent,
+  canActivate: [TokenGuard]
 },
-  {
-    path: 'jelentkezes', 
-    component:JelentkComponent
+{
+  path: 'adatlap', 
+  component:AdatlapComponent,
+  canActivate: [TokenGuard]
+
 },
-  {
-    path: 'tajekoztato', 
-    component:TajekoztatoComponent
-  },
-  {
-    path: 'admin', 
-    component:AdminComponent,
-    canActivate: [authGuard]
-  },
-  {
-    path: 'adminrep', 
-    component:RepulokComponent,
-    canActivate: [authGuard]
-  },
-  {
-    path: 'adminfelh', 
-    component:FelhasznalokComponent,
-    canActivate: [authGuard]
-  },
-  {
-    path: 'adminkepzsk', 
-    component:KepzesekComponent,
-    canActivate: [authGuard]
-  },
-  {path: ' ', component:FooldalComponent},
-  {path: '**', component:FooldalComponent},
+{
+  path: 'jelentkezes', 
+  component:JelentkComponent,
+  canActivate: [TokenGuard]
+
+},
+{
+  path: 'tajekoztato', 
+  component:TajekoztatoComponent,
+  canActivate: [TokenGuard]
+
+},
+{
+  path: 'admin', 
+  component:AdminComponent,
+  canActivate: [authGuard]
+},
+{
+  path: 'adminrep', 
+  component:RepulokComponent,
+  canActivate: [authGuard]
+},
+{
+  path: 'adminfelh', 
+  component:FelhasznalokComponent,
+  canActivate: [authGuard]
+},
+{
+  path: 'adminkepzsk', 
+  component:KepzesekComponent,
+  canActivate: [authGuard]
+},
+{path: ' ', component:FooldalComponent},
+{path: '**', component:FooldalComponent},
 ];
 
 @NgModule({
