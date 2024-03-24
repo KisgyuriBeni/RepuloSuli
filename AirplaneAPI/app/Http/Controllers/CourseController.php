@@ -43,8 +43,7 @@ class CourseController extends Controller {
             $course -> course_name = $request["course_name"]; 
             $course -> airplane_id = $request["airplane_id"];  
             $course -> instructor = $request["instructor"];  
-            $course -> start_date = $request["start_date"];  
-            $course -> end_date = $request["end_date"]; 
+            $course -> duration = $request["duration"];
             $course -> course_fee = $request["course_fee"];  
 
             $course -> save();
@@ -54,8 +53,7 @@ class CourseController extends Controller {
                    
             return $this->sendError("Sikertelen azonosítás", 401);
         };
-
-        
+ 
     }
 
     public function createCourse(Request $request) {
@@ -67,8 +65,7 @@ class CourseController extends Controller {
         $course -> course_name = $request["course_name"];
         $course -> airplane_id = $request["airplane_id"];  
         $course -> instructor = $request["instructor"];  
-        $course -> start_date = $request["start_date"];  
-        $course -> end_date = $request["end_date"];
+        $course -> duration = $request["duration"];
         $course -> course_fee = $request["course_fee"];  
         
 

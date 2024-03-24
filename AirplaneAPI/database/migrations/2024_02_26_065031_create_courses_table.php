@@ -16,8 +16,7 @@ return new class extends Migration
             $table->string("course_name");
             $table->foreignId("airplane_id");
             $table->string("instructor");
-            $table->date("start_date");
-            $table->date("end_date");
+            $table->string("duration");
             $table->double("course_fee");
             //$table->timestamps();
         });

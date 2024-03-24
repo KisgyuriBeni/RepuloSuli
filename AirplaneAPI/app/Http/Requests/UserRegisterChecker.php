@@ -25,9 +25,9 @@ class UserRegisterChecker extends FormRequest
     {
         return [
             "user_name"=>"required|max:20|unique:users",
-            "email"=>"required|email|unique:users",
-            "password"=>"required|min:6",
-            "confirm_password"=>"required|same:password"
+            "email"=>["required","regex:/(.+)@(.+)\.(.+)/i","unique:users"],
+            "password"=>["required",Password::min(6)->letters()->mixedCase()->numbers()->symbols(),"confirmed"],
+            "password_confirmation"=>"required"
         ];
     }
 
