@@ -8,6 +8,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use App\Notifications\ResetPasswordNotification;
 
 class User extends Authenticatable
 {
@@ -46,5 +47,13 @@ class User extends Authenticatable
     public function courses(): BelongsToMany {
 
         return $this->belongsToMany(Course::class, 'user_course', 'user_id', 'course_id');
+    }
+
+    public function sendPasswordResetNotification($token)
+    {
+
+        $url = 'frontend url reset-password?token=' . $token;
+
+        $this->notify(new ResetPasswordNotification($url));
     }
 }

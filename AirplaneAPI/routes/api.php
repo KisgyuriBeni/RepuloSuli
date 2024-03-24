@@ -7,7 +7,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\AirplaneController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\UserCourseController;
-
+use App\Http\Controllers\NewPasswordController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -56,6 +56,9 @@ Route::get("/onecourse/{id}",[CourseController::class,"getCourseById"]);
 Route::get("/airplanes", [AirplaneController::class, "getAirplanes"]);
 Route::get("/oneairplane/{id}",[AirplaneController::class,"getAirplaneById"]);
 
+
+Route::post("/reset-password-link",[NewPasswordController::class,"resetPasswordLink"]);
+Route::post("/reset-password",[NewPasswordController::class,"resetPassword"]);
 
 
 
