@@ -1,6 +1,5 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Router } from '@angular/router';
 import { Observable } from 'rxjs/internal/Observable';
 
 
@@ -12,16 +11,15 @@ export class AuthService {
 authURL = "http://localhost:8000/api/"
 
 
-constructor(private http:HttpClient, private router:Router){}
+constructor(private http:HttpClient){}
 
-register(user:any){
- return this.http.post(this.authURL+'register', user)
+register(user:any): Observable<any>{
+ return this.http.post<any>(`${this.authURL}register`, user)
 }
 
 login(user: any): Observable<any> {
   return this.http.post<any>(`${this.authURL}login`, user)
 }
-
 logout(token:any): Observable<any> {
   const headers = new HttpHeaders(token)
   return this.http.post<any>(`${this.authURL}logout`, { headers });

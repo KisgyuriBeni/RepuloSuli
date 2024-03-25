@@ -18,6 +18,7 @@ login(){
   this.isSpinning = true;
   this.auth.login(this.user).subscribe(
     (res) => {
+      console.log(res.success)
       localStorage.setItem('id', res.data.id)
       localStorage.setItem('token', res.data.token)
       this.isLoggedin = true

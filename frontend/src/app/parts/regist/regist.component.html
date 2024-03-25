@@ -1,32 +1,42 @@
 <div class="container">
   <div class="col-12 col-sm-8 col-md-6 mx-auto" style="max-width: 30rem;">
     <div class="card border-0 shadow p-5">
-      <h2 class="text-center mb-3 p-3">
-      Hozzon létre egy fiókot
-    </h2>      
+      <h2 class="text-center mb-3 p-3">Hozzon létre egy fiókot</h2>  
+      
+      <div class="mb-3" *ngIf="invalidPassword">
+        <small class="text-danger">A két jelszó nem egyezik meg.</small>
+      </div>
+      <div class="mb-3" *ngIf="emailExists">
+        <small class="text-danger">Az email cím foglalt!</small>
+      </div>
+
       <div class="mb-3">
         <input type="text" placeholder="Felhasználónév" 
         class="inp form-control" id="user_name" aria-describedby="emailHelp"
         [(ngModel)]="newUser.user_name"
         >
-      </div>
+        <small *ngIf="emptyFields && !newUser.user_name" class="text-danger">Töltse ki a mezőt!</small>
+      </div>      
       <div class="mb-3">
         <input type="email" placeholder="Emailcím" 
         class="inp form-control" id="email" aria-describedby="emailHelp"
         [(ngModel)]="newUser.email"
         >
+        <small *ngIf="emptyFields && !newUser.email" class="text-danger">Töltse ki a mezőt!</small>
       </div>
       <div class="mb-3">
         <input type="password" placeholder="Jelszó" 
         class="inp form-control" id="password"
         [(ngModel)]="newUser.password"
         >
-      </div>
+        <small *ngIf="emptyFields && !newUser.password" class="text-danger">Töltse ki a mezőt!</small>
+      </div>  
       <div class="mb-3">
         <input type="password" placeholder="Jelszó újra" 
         class="inp form-control" id="confirm_password"
         [(ngModel)]="newUser.password_confirmation"
         >
+        <small *ngIf="emptyFields && !newUser.password_confirmation" class="text-danger">Minden mezőt tölts ki!</small>
       </div>
       <div class="row justify-content-center">
         <div class="col-12 col-sm-8 col-md-6 text-center mx-auto" (click)="registration()">
@@ -37,4 +47,3 @@
     </div>       
   </div>
 </div>
- 
