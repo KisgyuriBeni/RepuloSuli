@@ -2,8 +2,11 @@
   <div class="col-12 col-sm-8 col-md-6 mx-auto" style="max-width: 30rem;">
     <div class="card border-0 shadow p-5 mb-4">
       <h2 class="text-center mb-3 p-3">
-        Jelentkezzen be
-      </h2>       
+        Jelentkezz be
+      </h2>      
+      <div class="mb-3" *ngIf="invalidPassword">
+        <small class="text-danger">Hibás email vagy jelszó!</small>
+      </div> 
       <div class="mb-3">
         <input type="email" placeholder="Emailcím" 
         class="inp form-control" id="email" aria-describedby="emailHelp"

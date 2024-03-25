@@ -8,32 +8,41 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrls: ['./bejel.component.css'],
 })
 export class BejelComponent{
-user:any={ email:'', password:'' }
+user:any={}
+
 isSpinning:boolean = false
-isLoggedin:boolean=false
+isLoggedin:boolean = false
+invalidPassword:boolean = false
+tooManyAttempt:boolean = false
 
 constructor(private auth:AuthService, private router:Router){}
 
-login(){
+login() {
   this.isSpinning = true;
+
   this.auth.login(this.user).subscribe(
     (res) => {
-      console.log(res.success)
-      localStorage.setItem('id', res.data.id)
-      localStorage.setItem('token', res.data.token)
-      this.isLoggedin = true
-      console.log(res)
-      this.router.navigate(['/fooldal'])
-      setTimeout(() => {
-        this.isSpinning = false
-      }, 500)
+      console.log(res);
+      
+      localStorage.setItem('id', res.data.id);
+      localStorage.setItem('token', res.data.token);
+
+      this.isLoggedin = true;
+      this.router.navigate(['/fooldal']);
     },
     (err) => {
-      
-      console.error("Bejelentkezési hiba!", err)
+      this.isSpinning = false;
+      console.error(err);
+
+      if (err && err.errormessage && err.errormessage.includes('Hibás email vagy jelszó')) {
+        this.invalidPassword = true;
+      } else if (err && err.errormessage && err.errormessage.includes('Túl sok próbálkozás')) {
+        this.tooManyAttempt = true;
+      }
     }
   );
 }
+
  
 }
 
