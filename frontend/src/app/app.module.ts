@@ -5,7 +5,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModule, NgbToastModule } from '@ng-bootstrap/ng-bootstrap';
 import { BejelComponent } from './parts/bejel/bejel.component';
 import { RegistComponent } from './parts/regist/regist.component';
 import { NavComponent } from './parts/nav/nav.component';
@@ -47,7 +47,8 @@ import { KepzesekComponent } from './admin/kepzesek/kepzesek.component';
     AppRoutingModule,
     NgbModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    NgbToastModule
 
   ],
   providers: [],

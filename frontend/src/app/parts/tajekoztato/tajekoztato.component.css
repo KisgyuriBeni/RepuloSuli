@@ -4,7 +4,7 @@
 .header{
     background-color: rgb(255, 255, 255, 0.1);
 }
-#h2header{
+/* #h2header{
     margin-top: 10px;
     margin-left: 40px;
     font-weight: 400;
@@ -15,7 +15,7 @@
     padding: 15px;
     font-weight: bold;
     font-size: 50px;
-}
+} */
 .card {
     background-color: rgba(255, 255, 255, 0.6);
     border-radius: 10px;
