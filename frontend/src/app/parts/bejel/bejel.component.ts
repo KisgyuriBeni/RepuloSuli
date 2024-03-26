@@ -22,22 +22,22 @@ login() {
 
   this.auth.login(this.user).subscribe(
     (res) => {
-      console.log(res);
+      console.log(res)
       
-      localStorage.setItem('id', res.data.id);
-      localStorage.setItem('token', res.data.token);
+      localStorage.setItem('id', res.data.id)
+      localStorage.setItem('token', res.data.token)
 
-      this.isLoggedin = true;
-      this.router.navigate(['/fooldal']);
+      this.isLoggedin = true
+      this.router.navigate(['/fooldal'])
     },
     (err) => {
-      this.isSpinning = false;
-      console.error(err);
+      this.isSpinning = false
+      console.error(err)
 
       if (err && err.errormessage && err.errormessage.includes('Hibás email vagy jelszó')) {
-        this.invalidPassword = true;
+        this.invalidPassword = true
       } else if (err && err.errormessage && err.errormessage.includes('Túl sok próbálkozás')) {
-        this.tooManyAttempt = true;
+        this.tooManyAttempt = true
       }
     }
   );

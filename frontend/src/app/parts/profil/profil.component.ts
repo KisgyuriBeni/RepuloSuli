@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 import { BaseService } from 'src/app/services/base.service';
@@ -35,11 +36,17 @@ export class ProfilComponent implements OnInit {
     { key: "course_fee", text: "Ár", type: "text" }
   ];
 
-  constructor(private auth: AuthService, private router: Router, private base: BaseService) { }
+  constructor(private auth: AuthService, private router: Router, private base: BaseService, private snackbar:MatSnackBar) { }
 
   ngOnInit(): void {
     this.getOneUserById()
     this.getairplanes()
+  }
+
+  openSnackBar(message: string, action: string) {
+    this.snackbar.open(message, action, {
+      duration: 3000,
+    });
   }
 
   getOneUserById() {
@@ -72,6 +79,7 @@ export class ProfilComponent implements OnInit {
     localStorage.removeItem('admin');
     this.isLoggedin = false;
     this.router.navigate(['/fooldal']);
+    this.openSnackBar('Kijelentkezz!', 'Bezár')
   }
 
   getAirplaneNameById(airplaneId:any): string {

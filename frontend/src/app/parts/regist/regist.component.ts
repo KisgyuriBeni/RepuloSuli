@@ -1,6 +1,8 @@
 import { Component} from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
+
 
 @Component({
   selector: 'app-regist',
@@ -19,39 +21,52 @@ emailExists:boolean = false
 emptyFields:boolean = false
 invalidPassword: boolean = false
 
-constructor(private auth:AuthService, private router:Router){}
+constructor(private auth:AuthService, private router:Router, private snackbar:MatSnackBar){}
+
+openSnackBar(message: string, action: string) {
+  this.snackbar.open(message, action, {
+    duration: 3000,
+  });
+}
+openErrorSnackbar(message:any, action: any){
+  this.snackbar.open(message, action, {
+    duration: 3000
+  } )
+}
 
 registration() {
-  this.isSpinning = true;
+  this.isSpinning = true
 
   this.auth.register(this.newUser).subscribe(
     (res) => {
       console.log(res)
-      this.user = { email: this.newUser.email, password: this.newUser.password }
-      
       if (res.data && res.data.email && res.data.email.includes('The email has already been taken.')) {
         this.emailExists = true
         this.isSpinning = false
       } 
-      
-      setTimeout(() => {
-        if (!this.newUser.user_name || !this.newUser.email || !this.newUser.password || !this.newUser.password_confirmation) {
-          this.emptyFields = true;
-        } else if (this.newUser.password !== this.newUser.password_confirmation) {
-          this.invalidPassword = true;
-        } else if (this.emailExists) {
-          this.emailExists = true;
-        } else
-        this.isSpinning = false;
-        this.loginAfterRegist(this.user)
-      }, 500);
-    },
+        this.openSnackBar('Sikeres regisztráció!', 'Bezár')
+        this.user = { email: this.newUser.email, password: this.newUser.password }
+        setTimeout(() => {
+          if (!this.newUser.user_name || !this.newUser.email || !this.newUser.password || !this.newUser.password_confirmation) {
+            this.emptyFields = true
+            this.isSpinning = false
+          } else if (this.newUser.password !== this.newUser.password_confirmation) {
+            this.invalidPassword = true
+            this.isSpinning = false
+          } else {
+            if (!this.emailExists) {
+              this.loginAfterRegist(this.user)
+            }
+            this.isSpinning = false
+          }
+        }, 500)
+      },
     (err) => {
-      console.log(err);
+      console.error(err)
       this.isSpinning = false
-    })
+    }
+  );
 }
-
 
 
 loginAfterRegist(user: any) {
@@ -61,10 +76,15 @@ loginAfterRegist(user: any) {
       localStorage.setItem('token', res.data.token)
       this.isLoggedin = true
       this.router.navigateByUrl('/profile')
+      this.openSnackBar('Sikeres belépés!', 'Bezár')
     },
     (err) => {
       console.error("Bejelentkezési hiba!", err)
     }
   )
 }
+
+
+
+
 }

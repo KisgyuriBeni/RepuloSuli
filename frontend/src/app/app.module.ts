@@ -2,10 +2,11 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NgbModule, NgbToastModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BejelComponent } from './parts/bejel/bejel.component';
 import { RegistComponent } from './parts/regist/regist.component';
 import { NavComponent } from './parts/nav/nav.component';
@@ -21,6 +22,7 @@ import { AdminComponent } from './admin/admin/admin.component';
 import { RepulokComponent } from './admin/repulok/repulok.component';
 import { FelhasznalokComponent } from './admin/felhasznalok/felhasznalok.component';
 import { KepzesekComponent } from './admin/kepzesek/kepzesek.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -48,8 +50,8 @@ import { KepzesekComponent } from './admin/kepzesek/kepzesek.component';
     NgbModule,
     HttpClientModule,
     FormsModule,
-    NgbToastModule
-
+    BrowserAnimationsModule,
+    MatSnackBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]
