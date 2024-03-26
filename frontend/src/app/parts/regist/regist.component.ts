@@ -43,7 +43,6 @@ registration() {
       if (res.data && res.data.email && res.data.email.includes('The email has already been taken.')) {
         this.emailExists = true
         this.isSpinning = false
-<<<<<<< HEAD
       } 
         this.openSnackBar('Sikeres regisztráció!', 'Bezár')
         this.user = { email: this.newUser.email, password: this.newUser.password }
@@ -64,24 +63,6 @@ registration() {
       },
     (err) => {
       console.error(err)
-=======
-      } else{
-      }
-      
-      setTimeout(() => {
-        if (!this.newUser.user_name || !this.newUser.email || !this.newUser.password || !this.newUser.password_confirmation) {
-          this.emptyFields = true
-        } else if (this.newUser.password !== this.newUser.password_confirmation) {
-          this.invalidPassword = true
-        } else if (!this.emailExists && !this.invalidPassword && !this.emptyFields && this.user) {
-          this.loginAfterRegist(this.user)
-        }
-        this.isSpinning = false
-      }, 500)
-    },
-    (err) => {
-      console.log(err)
->>>>>>> dd8d9c48204be9af37ddbc62b7d16a30d15152c8
       this.isSpinning = false
     }
   );
