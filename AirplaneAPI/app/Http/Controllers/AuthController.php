@@ -10,6 +10,7 @@ use App\Http\Requests\UserRegisterChecker;
 use App\Http\Requests\UserLoginChecker;
 use App\Http\Requests\PasswordChecker;
 use Carbon\Carbon;
+use Illuminate\Auth\Events\Registered;
 
 class AuthController extends ResponseController {
     public function register(UserRegisterChecker $request) {
@@ -18,6 +19,7 @@ class AuthController extends ResponseController {
         $input = $request->all();
         $input["password"] = bcrypt($input["password"]);
         $user = User::create($input);
+        event(new Registered($user));
         $success ["user_name"] =$user->user_name;
         $success["id"]= $user->id;
         return $this->sendResponse($success, "Sikeres regisztráció");

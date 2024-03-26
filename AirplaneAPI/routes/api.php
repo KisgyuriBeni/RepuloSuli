@@ -8,6 +8,7 @@ use App\Http\Controllers\AirplaneController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\UserCourseController;
 use App\Http\Controllers\NewPasswordController;
+use App\Http\Controllers\EmailVerificationController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -59,6 +60,9 @@ Route::get("/oneairplane/{id}",[AirplaneController::class,"getAirplaneById"]);
 
 Route::post("/reset-password-link",[NewPasswordController::class,"resetPasswordLink"]);
 Route::post("/reset-password",[NewPasswordController::class,"resetPassword"]);
+
+Route::post('email/verification-notification', [EmailVerificationController::class, 'sendVerificationEmail'])->middleware('auth:sanctum');
+Route::get('verify-email/{id}/{hash}', [EmailVerificationController::class, 'verify'])->name('verification.verify')->middleware('auth:sanctum');
 
 
 
