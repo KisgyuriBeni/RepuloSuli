@@ -32,24 +32,25 @@ registration() {
       if (res.data && res.data.email && res.data.email.includes('The email has already been taken.')) {
         this.emailExists = true
         this.isSpinning = false
-      } 
+      } else{
+      }
       
       setTimeout(() => {
         if (!this.newUser.user_name || !this.newUser.email || !this.newUser.password || !this.newUser.password_confirmation) {
-          this.emptyFields = true;
+          this.emptyFields = true
         } else if (this.newUser.password !== this.newUser.password_confirmation) {
-          this.invalidPassword = true;
-        } else if (this.emailExists) {
-          this.emailExists = true;
-        } else
-        this.isSpinning = false;
-        this.loginAfterRegist(this.user)
-      }, 500);
+          this.invalidPassword = true
+        } else if (!this.emailExists && !this.invalidPassword && !this.emptyFields && this.user) {
+          this.loginAfterRegist(this.user)
+        }
+        this.isSpinning = false
+      }, 500)
     },
     (err) => {
-      console.log(err);
+      console.log(err)
       this.isSpinning = false
-    })
+    }
+  );
 }
 
 
