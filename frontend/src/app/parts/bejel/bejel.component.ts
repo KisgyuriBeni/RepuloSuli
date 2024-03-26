@@ -14,10 +14,16 @@ isSpinning:boolean = false
 isLoggedin:boolean = false
 invalidPassword:boolean = false
 tooManyAttempt:boolean = false
+emptyFields: boolean = false
 
 constructor(private auth:AuthService, private router:Router){}
 
 login() {
+  if (!this.user.email || !this.user.password) {
+    this.emptyFields = true
+    return
+  }
+
   this.isSpinning = true;
 
   this.auth.login(this.user).subscribe(
