@@ -81,13 +81,33 @@
             <p>Olyan tanfolyamokra nem tudsz jelentkezni, melyekhez kell szakszolgálati engedély!</p>
             <p>Azonban, ha már akkor az nagyszerű. Ennek jelentőségével a tanfolyamoknál fogsz találkozni.</p>
         </div>
-        <div class="card p-3 text-center">
-            <h4>Köszönjük, hogy minket választottál!</h4>
-            <p>Itt tovább léphetsz a tanfolyamok megtekintéséhez</p>
-            <div>
-                <button type="button" class="btn btn-light" routerLink="/jelentkezes">Tovább</button>
+        <ng-container *ngIf="!isChecked; else notChecked">
+            <div class="row justify-content-center">
+              <div class="col-6">
+                <div class="card check-card p-3 mb-4">
+                  <div>
+                    <p>Elolvasta a tájékoztatót és tudomásul vette a tanfolyamokkal járó kötelezettségeit?</p>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" [checked]="isChecked" (change)="handleCheckboxChange()" id="flexCheckDefault">
+                    <label class="form-check-label" for="flexCheckDefault">
+                      Elfogadom
+                    </label>
+                  </div>
+                </div>
+              </div>
             </div>
-        </div>
+          </ng-container>
+          <ng-template #notChecked>
+            <div class="card p-3 text-center">
+                <h4>Köszönjük, hogy minket választottál!</h4>
+                <p>Itt tovább léphetsz a tanfolyamok megtekintéséhez</p>
+                <div>
+                  <button type="button" class="btn btn-light" routerLink="/jelentkezes">Tovább</button>
+                </div>
+              </div>
+          </ng-template>
+          
     </div>
 </div>
 
