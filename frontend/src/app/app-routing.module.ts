@@ -15,6 +15,7 @@ import { FelhasznalokComponent } from './admin/felhasznalok/felhasznalok.compone
 import { KepzesekComponent } from './admin/kepzesek/kepzesek.component';
 import { authGuard } from './guards/auth.guard';
 import { TokenGuard } from './guards/token.guard';
+import { ischeckedGuard } from './guards/ischecked.guard';
 
 const routes: Routes = [
   {path:'verify', component:VerifyComponent},
@@ -36,7 +37,7 @@ const routes: Routes = [
 {
   path: 'jelentkezes', 
   component:JelentkComponent,
-  canActivate: [TokenGuard]
+  canActivate: [TokenGuard, ischeckedGuard]
 
 },
 {
