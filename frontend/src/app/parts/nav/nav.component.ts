@@ -15,9 +15,9 @@ export class NavComponent implements OnInit{
     const storedValue = sessionStorage.getItem('isChecked')
     this.isChecked = storedValue ? (storedValue === 'true') : false
   }
-  clearSessionStorage(): void {
-    sessionStorage.removeItem('isChecked') 
-    // Sessionstorage törlés teszt jelleggel
-  }
+  // clearSessionStorage(): void {
+  //   sessionStorage.removeItem('isChecked') 
+  //   Sessionstorage törlés teszt jelleggel
+  // }
   
 }
